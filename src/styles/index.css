@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Brand fonts (self-hosted) ---------- */
+@font-face { font-family: 'MADE_Gentle'; src: url('/fonts/MadeGentle.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'moreSugar'; src: url('/fonts/MoreSugar-Thin.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Proxima'; src: url('/fonts/Proxima.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Gibson'; src: url('/fonts/Gibson.woff2') format('woff2'), url('/fonts/Gibson.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Gibson'; src: url('/fonts/Gibson-Light.woff2') format('woff2'); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Gibson'; src: url('/fonts/Gibson-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Gibson'; src: url('/fonts/Gibson-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+
+html { scroll-behavior: smooth; }
+body { font-family: Montserrat, sans-serif; margin: 0; padding: 0; background: #f8fbff; }
+
+.MadeGentle { font-family: MADE_Gentle, sans-serif !important; }
+.moreSugar { font-family: moreSugar, sans-serif; font-optical-sizing: auto; }
+.font-spartan { font-family: 'League Spartan', sans-serif; }
+.font-montserrat { font-family: Montserrat, sans-serif; }
+
+/* ---------- Scroll-reveal ---------- */
+.fadeIn { opacity: 1; transition: opacity 1s ease-in-out; }
+.fadeOut { opacity: 0; transition: opacity 1s ease-in-out; }
+
+/* ---------- Nav hover menus ---------- */
+.nav-el:hover .nav-cheveron { transform: rotate(180deg); }
+.nav-el:hover .nav-el-menu { display: block; }
+.nav-cheveron { transition: transform .2s ease; }
+
+/* ---------- Utilities ---------- */
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+@media (min-width: 1700px) { .footerFlex { flex-direction: row; } }
+
+/* ---------- Draft placeholders (copy still needed) ---------- */
+.draft-note { background: #fff3a3; color: #7a5a00; border-radius: 4px; padding: 0 .3em; box-decoration-break: clone; -webkit-box-decoration-break: clone; font-style: italic; }
