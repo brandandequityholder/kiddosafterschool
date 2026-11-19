@@ -12,7 +12,8 @@ function Reveal({ as: Tag = 'p', className = '', children, ...rest }) {
 const MASK = { maskImage: 'url("/assets/videoSvg-61af47a1.svg")', WebkitMaskImage: 'url("/assets/videoSvg-61af47a1.svg")', maskSize: 'contain', WebkitMaskSize: 'contain', maskRepeat: 'no-repeat', WebkitMaskRepeat: 'no-repeat', maskPosition: 'center center', WebkitMaskPosition: 'center center' }
 
 /* ---------- Hero ---------- */
-function Hero({ s }) {
+function Hero({ s, source }) {
+  const vid = assetUrl(s.video, source, '/assets/TopVid.mp4')
   const title = String(s.title || '')
   return (
     <section className="w-full relative bg-[#F8FBFF] mt-[78px] pt-[78px]">
@@ -22,12 +23,12 @@ function Hero({ s }) {
         <div className="absolute top-[163px] right-0">
           <img src="/assets/RightBlob.svg" alt="" className="z-30 right-[60px]" />
           <div className="z-40 top-[60px] lg:block hidden absolute right-[-200px] h-[596.36px] w-[892.51px]">
-            <video playsInline src="/assets/TopVid.mp4" loop autoPlay muted preload="none" poster="/assets/preview.png" className="h-[596.36px] w-[892.51px] object-cover" style={MASK} />
+            <video playsInline src={vid} loop autoPlay muted preload="none" poster="/assets/preview.png" className="h-[596.36px] w-[892.51px] object-cover" style={MASK} />
           </div>
         </div>
       </div>
       <div className="h-[410px] relative lg:hidden overflow-hidden">
-        <video playsInline src="/assets/TopVid.mp4" loop autoPlay muted className="w-full h-full object-cover" />
+        <video playsInline src={vid} loop autoPlay muted className="w-full h-full object-cover" />
         <img src="/assets/VidCurveMob.svg" alt="" className="absolute z-20 -bottom-1 w-full" />
       </div>
       <div className="max-w-[1243.406px] w-full relative lg:pl-[40px] lg:px-0 px-[40px] pb-[100px] lg:pb-[300px] pt-[50px] lg:pt-[137px] mx-auto">
@@ -49,7 +50,9 @@ function Hero({ s }) {
 }
 
 /* ---------- Founder ---------- */
-function Founder({ s }) {
+function Founder({ s, source }) {
+  const vid = assetUrl(s.video, source, '')
+  const photo = assetUrl(s.photo, source, '')
   return (
     <section className="w-full h-fit bg-[#F8FBFF]">
       <div className="max-w-[1243.406px] lg:pl-[32px] px-[40px] lg:space-x-[80px] justify-start flex lg:flex-row flex-col w-full mx-auto">
@@ -59,7 +62,9 @@ function Founder({ s }) {
         </h2>
         <div className="relative">
           <div className="bg-white z-10 relative rounded-[30px] py-[24px] w-full max-w-[328px] lg:w-[328px] h-[534px]">
-            <video playsInline src="/assets/FounderVid.mp4" loop autoPlay muted className="w-[85%] max-w-[268px] lg:w-[268px] relative h-[487px] z-10 rounded-[20px] mx-auto object-cover" />
+            {!vid && photo
+              ? <img src={photo} alt={s.name} className="w-[85%] max-w-[268px] lg:w-[268px] relative h-[487px] z-10 rounded-[20px] mx-auto object-cover" />
+              : <video playsInline src={vid || '/assets/FounderVid.mp4'} loop autoPlay muted className="w-[85%] max-w-[268px] lg:w-[268px] relative h-[487px] z-10 rounded-[20px] mx-auto object-cover" />}
             <img src="/assets/FounderSvg.svg" alt="" className="lg:flex hidden z-10 w-[433px] absolute bottom-[23px] right-[35px] justify-center" />
           </div>
           <div className="absolute -top-[10px] -left-[30px]"><FounderBlob /></div>
@@ -81,7 +86,9 @@ function Card({ f, source }) {
   return (
     <div className="bg-white overflow-hidden space-y-[20px] lg:pl-[48px] pt-[48px] px-[30px] py-[24px] w-full lg:w-[359px] rounded-[30px] h-fit lg:h-[730px]">
       <div className="relative rounded-[20px] overflow-hidden">
-        <video playsInline src={assetUrl(f.video, source)} loop autoPlay muted className="w-[265px] rounded-[20px] h-[265px] object-cover" />
+        {!f.video && f.photo
+          ? <img src={assetUrl(f.photo, source)} alt={f.name} className="w-[265px] rounded-[20px] h-[265px] object-cover" />
+          : <video playsInline src={assetUrl(f.video, source)} loop autoPlay muted className="w-[265px] rounded-[20px] h-[265px] object-cover" />}
         <img className={`absolute w-full bottom-0 ${f.blobPosition || ''}`} src={assetUrl(f.blob, source)} alt="" />
       </div>
       <div className="space-y-[5px]">
@@ -126,9 +133,9 @@ export default function Team() {
   if (!c) return null
   return (
     <div className="overflow-x-hidden relative">
-      <Hero s={c.heroSection} />
-      <Founder s={c.founderSection} />
-      <TeamGrid s={c.FoundersSection} founders={c.founders || []} source={source} />
+      <Hero s={c.heroSection || {}} source={source} />
+      <Founder s={c.founderSection || {}} source={source} />
+      <TeamGrid s={c.teamSection || c.FoundersSection || {}} founders={c.members || c.founders || []} source={source} />
     </div>
   )
 }

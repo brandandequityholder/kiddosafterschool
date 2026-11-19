@@ -1,22 +1,20 @@
 import { createClient } from '@sanity/client'
 import { useEffect, useState } from 'react'
-import exported from '../content/site.json'
+import exported from '../content/sanity-export.json'
 
 /**
  * Sanity content layer.
  *
- * Every page renders instantly from the bundled content (src/content/site.json),
- * then refreshes from the live Sanity dataset when the API is reachable. If Sanity is
- * unreachable (offline, CORS, preview hosting) the bundled content is what you see.
+ * Every page renders instantly from the bundled export (src/content/sanity-export.json),
+ * then refreshes from the live Sanity dataset. If Sanity is unreachable (offline, CORS not
+ * yet allowed for this host) the bundled content is what you see.
  *
- * Re-export the content with `npm run content:pull` after editing in the Sanity Studio
- * so the fallback stays current.
+ * After editing in the Studio, `npm run content:pull` refreshes the bundled export + the
+ * local media copies in public/cms so the fallback stays current.
  */
-export const SANITY_PROJECT_ID = import.meta.env.VITE_SANITY_PROJECT_ID || 'mpky4rym'
+export const SANITY_PROJECT_ID = import.meta.env.VITE_SANITY_PROJECT_ID || '3p5mllwc'
 export const SANITY_DATASET = import.meta.env.VITE_SANITY_DATASET || 'production'
-// The After School site has no Sanity dataset yet: content ships in src/content/site.json.
-// Set VITE_SANITY_LIVE=true (and the project/dataset vars) once an after-school dataset exists.
-const LIVE = import.meta.env.VITE_SANITY_LIVE === 'true'
+const LIVE = import.meta.env.VITE_SANITY_LIVE !== 'false'
 
 export const client = createClient({
   projectId: SANITY_PROJECT_ID,
@@ -25,24 +23,34 @@ export const client = createClient({
   useCdn: true,
 })
 
-const cache = new Map()
+/** Document types that exist many times (everything else is a single page/settings doc). */
+const COLLECTIONS = { school: { order: 'order asc' } }
 
-/** Fetch the single document of a given _type, resolving image/file asset refs to URLs. */
-async function fetchDoc(type) {
+const cache = new Map()
+function fetchDoc(type) {
   if (cache.has(type)) return cache.get(type)
-  const p = client.fetch(`*[_type == $type && !(_id in path("drafts.**"))][0]`, { type }).catch(() => null)
+  const coll = COLLECTIONS[type]
+  const q = coll
+    ? `*[_type == $type && !(_id in path("drafts.**"))] | order(${coll.order})`
+    : `*[_type == $type && !(_id in path("drafts.**"))][0]`
+  const p = client.fetch(q, { type }).catch(() => null)
   cache.set(type, p)
   return p
 }
 
+/**
+ * useContent('homePage')  → [doc, source]
+ * useContent('school')    → [docs[], source]  (collection types return an ordered array)
+ * `source` is 'bundle' or 'live' and is what assetUrl() needs to build media URLs.
+ */
 export function useContent(type) {
-  const [doc, setDoc] = useState(() => exported[type] || null)
+  const [doc, setDoc] = useState(() => exported[type] ?? null)
   const [source, setSource] = useState('bundle')
   useEffect(() => {
     if (!LIVE) return
     let alive = true
     fetchDoc(type).then((d) => {
-      if (alive && d) { setDoc(d); setSource('live') }
+      if (alive && d && (!Array.isArray(d) || d.length)) { setDoc(d); setSource('live') }
     })
     return () => { alive = false }
   }, [type])
@@ -50,27 +58,24 @@ export function useContent(type) {
 }
 
 /**
- * Resolve a Sanity asset reference (`image-<id>-<w>x<h>-svg`, `file-<id>-mp4`) or an
- * asset object to a usable URL. Bundled content resolves to the local /cms copy so the
- * site is fully self-contained; live content resolves to the Sanity CDN.
+ * Resolve a Sanity image/file (asset object or `image-<id>-<w>x<h>-svg` style ref) to a URL.
+ * Bundled content resolves to the local /cms copy; live content to the Sanity CDN.
+ * Returns `fallback` when the field is empty, so every media field can be optional.
  */
-export function assetUrl(assetOrRef, source = 'bundle') {
-  if (!assetOrRef) return ''
+export function assetUrl(assetOrRef, source = 'bundle', fallback = '') {
+  if (!assetOrRef) return fallback
   const ref = typeof assetOrRef === 'string' ? assetOrRef : assetOrRef?.asset?._ref || assetOrRef?._ref || ''
-  if (!ref) return ''
+  if (!ref) return fallback
   const [kind, id, ...rest] = ref.split('-')
-  let file
   if (kind === 'image') {
-    const dims = rest[0]
-    const ext = rest[1]
-    file = `${id}-${dims}.${ext}`
-    return source === 'live'
-      ? `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${file}`
-      : `/cms/${file}`
+    const file = `${id}-${rest[0]}.${rest[1]}`
+    return source === 'live' ? `https://cdn.sanity.io/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${file}` : `/cms/${file}`
   }
-  const ext = rest[0]
-  file = `${id}.${ext}`
-  return source === 'live'
-    ? `https://cdn.sanity.io/files/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${file}`
-    : `/cms/${file}`
+  const file = `${id}.${rest[0]}`
+  return source === 'live' ? `https://cdn.sanity.io/files/${SANITY_PROJECT_ID}/${SANITY_DATASET}/${file}` : `/cms/${file}`
+}
+
+/** Prefer an uploaded PDF, then a typed link, then the fallback. */
+export function docUrl(fileField, urlField, source, fallback = '#') {
+  return assetUrl(fileField, source, '') || urlField || fallback
 }

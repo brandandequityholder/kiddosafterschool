@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
+import { initAnalytics, pageview } from './lib/analytics'
 import Announcement from './components/Announcement'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -32,7 +34,10 @@ const TITLES = {
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
   useEffect(() => {
-    document.title = TITLES[pathname] || 'Kiddos After School'
+    const title = TITLES[pathname] || (pathname.startsWith('/schools/') ? 'Kiddos After School' : 'Kiddos After School')
+    document.title = title
+    initAnalytics()
+    pageview(pathname, title)
     if (hash) {
       const el = document.querySelector(hash)
       if (el) { el.scrollIntoView({ behavior: 'smooth' }); return }
@@ -46,6 +51,7 @@ export default function App() {
   return (
     <div className="overflow-hidden p-0 m-0">
       <ScrollToTop />
+      <Analytics />
       <Announcement />
       <Navbar />
       <Routes>

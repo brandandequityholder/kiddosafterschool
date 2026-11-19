@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
-import { useContent } from '../lib/sanity'
+import { useContent, assetUrl } from '../lib/sanity'
+import { track } from '../lib/analytics'
 import { Link } from 'react-router-dom'
 import RichText from '../lib/RichText'
 import { useReveal } from '../lib/hooks'
@@ -50,7 +51,7 @@ function Dropdown({ label, value, options, placeholder, onChange, error }) {
   )
 }
 
-function ContactForm({ categories = DEFAULT_CATEGORIES, schools = DEFAULT_SCHOOLS }) {
+function ContactForm({ categories = DEFAULT_CATEGORIES, schools = DEFAULT_SCHOOLS, messages = {} }) {
   const [category, setCategory] = useState('')
   const [school, setSchool] = useState('')
   const [form, setForm] = useState({ fullName: '', email: '', phoneNumber: '', message: '' })
@@ -75,7 +76,7 @@ function ContactForm({ categories = DEFAULT_CATEGORIES, schools = DEFAULT_SCHOOL
     setStatus('sending')
     try {
       await emailjs.send(EMAILJS.service, EMAILJS.template, { category, school, ...form }, EMAILJS.publicKey)
-      setStatus('success'); setForm({ fullName: '', email: '', phoneNumber: '', message: '' }); setCategory(''); setSchool(''); setErrors({})
+      setStatus('success'); track('contact_submit', { category, school }); setForm({ fullName: '', email: '', phoneNumber: '', message: '' }); setCategory(''); setSchool(''); setErrors({})
     } catch { setStatus('error') }
   }
   const ring = (k) => (errors[k] ? ' ring-2 ring-red-400' : '')
@@ -103,10 +104,10 @@ function ContactForm({ categories = DEFAULT_CATEGORIES, schools = DEFAULT_SCHOOL
       </div>
       <div className="space-y-4">
         <button type="submit" disabled={status === 'sending'} className="w-[261.287px] lg:mx-0 mx-auto flex items-center justify-center h-[60.207px] lg:ml-[9px] text-[#004AAD] text-[16px] lg:text-xl font-bold font-['Montserrat'] leading-[69.32px] tracking-[3.90px] bg-[#F8EA2B] rounded-[6px] hover:brightness-95 disabled:opacity-70">
-          {status === 'sending' ? 'SENDING…' : 'SEND AWAY!'}
+          {status === 'sending' ? 'SENDING…' : (messages.submitText || 'SEND AWAY!')}
         </button>
-        {status === 'success' && <p className="text-[#86d24a] lg:ml-[9px] text-center lg:text-left font-['Montserrat'] text-[16px] lg:text-[20px]">Thanks! Your message is on its way — we’ll be in touch soon.</p>}
-        {status === 'error' && <p className="text-[#F8EA2B] lg:ml-[9px] text-center lg:text-left font-['Montserrat'] text-[16px] lg:text-[20px]">Something went wrong. Please email us at info@kiddosatlanta.com.</p>}
+        {status === 'success' && <p className="text-[#86d24a] lg:ml-[9px] text-center lg:text-left font-['Montserrat'] text-[16px] lg:text-[20px]">{messages.successText || 'Thanks! Your message is on its way — we’ll be in touch soon.'}</p>}
+        {status === 'error' && <p className="text-[#F8EA2B] lg:ml-[9px] text-center lg:text-left font-['Montserrat'] text-[16px] lg:text-[20px]">{messages.errorText || 'Something went wrong. Please email us at info@kiddosatlanta.com.'}</p>}
       </div>
     </form>
   )
@@ -114,7 +115,7 @@ function ContactForm({ categories = DEFAULT_CATEGORIES, schools = DEFAULT_SCHOOL
 
 export default function Contact() {
   const [c] = useContent('contactPage')
-  const [schoolDocs] = useContent('schools')
+  const [schoolDocs, sSource] = useContent('school')
   if (!c) return null
   const hero = c.heroSection || {}
   const loc = c.locationSection || {}
@@ -129,7 +130,7 @@ export default function Contact() {
             </h1>
             <p className="max-w-[958px] text-white text-[14px] lg:text-xl font-medium font-['Montserrat'] leading-[33.1px] lg:leading-[33.10px] fadeIn"><RichText text={hero.description} /></p>
           </div>
-          <ContactForm categories={c.categories} schools={c.schoolOptions} />
+          <ContactForm categories={c.categories?.length ? c.categories : undefined} schools={c.schoolOptions?.length ? c.schoolOptions : undefined} messages={c.form || {}} />
         </div>
         <img src="/assets/firstCurve.svg" alt="" className="w-full -mb-1" />
       </section>
@@ -140,29 +141,29 @@ export default function Contact() {
             <Reveal className="w-full max-w-[334px] lg:max-w-[977px] text-[#004aad] text-[14px] lg:text-[38px] font-normal font-['League_Spartan'] leading-[33.1px] lg:leading-[50px]">{loc.description}</Reveal>
           </div>
           <div className="space-y-[60px] lg:space-y-[90px]">
-            {schools.map((sc) => (
-              <div key={sc.slug} className="flex lg:flex-row flex-col space-y-[29px] lg:space-y-0 h-fit lg:space-x-[49px]">
+            {schools.map((sc) => { const slug = sc.slug?.current || sc.slug; const ct = sc.contact || sc; const lo = sc.location || sc; const map = assetUrl(lo.mapImage, sSource, ''); return (
+              <div key={slug} className="flex lg:flex-row flex-col space-y-[29px] lg:space-y-0 h-fit lg:space-x-[49px]">
                 <div className="relative shrink-0">
                   <div className="absolute h-full w-full flex items-center justify-center"><img src="/assets/map-pin.svg" alt="" width="93" height="115" /></div>
-                  <img src="/assets/map.png" alt={`Map showing ${sc.name}`} className="w-[346px] lg:w-[480px] h-[264px] lg:h-[360px] object-cover" />
-                  <p className="absolute bottom-[10px] left-[12px] text-[#004aad] text-[11px] font-bold font-['League_Spartan'] tracking-[2px] bg-white/85 px-[10px] py-[5px] rounded">MAP · pin on {sc.short} <mark className="draft-note">[MAP NEEDED]</mark></p>
+                  <img src={map || '/assets/map.png'} alt={`Map showing ${sc.name}`} className="w-[346px] lg:w-[480px] h-[264px] lg:h-[360px] object-cover" />
+                  {!map && <p className="absolute bottom-[10px] left-[12px] text-[#004aad] text-[11px] font-bold font-['League_Spartan'] tracking-[2px] bg-white/85 px-[10px] py-[5px] rounded">MAP · pin on {sc.short} <mark className="draft-note">[MAP NEEDED]</mark></p>}
                 </div>
                 <div className="text-center lg:text-start flex flex-col justify-center space-y-[24px]">
                   <div>
                     <p className="text-[#004aad] text-[26px] lg:text-[38px] font-bold font-['League_Spartan'] leading-[32px] lg:leading-[46px]">{sc.name}</p>
-                    <p className="text-[#004aad] text-[17px] lg:text-[24px] font-normal font-['League_Spartan'] leading-[28px] lg:leading-[36px]">{sc.address}</p>
+                    <p className="text-[#004aad] text-[17px] lg:text-[24px] font-normal font-['League_Spartan'] leading-[28px] lg:leading-[36px]">{lo.address}</p>
                     <p className="text-[#004aad] text-[16px] lg:text-[22px] font-normal font-['League_Spartan'] leading-[28px] lg:leading-[34px] pt-[8px]">
-                      {sc.director}, {sc.directorTitle} · <a href={`tel:${sc.phone.replace(/\D/g, '')}`} className="font-bold hover:underline">{sc.phone}</a><br />
-                      <a href={`mailto:${sc.email}`} className="font-bold hover:underline">{sc.email}</a>
+                      {ct.director}{ct.directorTitle ? `, ${ct.directorTitle}` : ''} · <a href={`tel:${String(ct.phone || '').replace(/\D/g, '')}`} className="font-bold hover:underline">{ct.phone}</a><br />
+                      <a href={`mailto:${ct.email}`} className="font-bold hover:underline">{ct.email}</a>
                     </p>
                   </div>
                   <div className="flex flex-wrap justify-center lg:justify-start gap-[12px]">
-                    <a rel="noopener noreferrer" className="w-[220px] flex items-center h-[52px] bg-[#004aad] justify-center text-white text-[14px] font-bold font-['Montserrat'] tracking-[3px] rounded-[5.91px] hover:brightness-110" href={sc.mapLink} target="_blank">GET DIRECTIONS</a>
-                    <Link className="w-[220px] flex items-center h-[52px] bg-[#F8EA2B] justify-center text-[#004aad] text-[14px] font-bold font-['Montserrat'] tracking-[3px] rounded-[5.91px] hover:brightness-95" to={`/schools/${sc.slug}`}>SCHOOL PAGE</Link>
+                    <a rel="noopener noreferrer" className="w-[220px] flex items-center h-[52px] bg-[#004aad] justify-center text-white text-[14px] font-bold font-['Montserrat'] tracking-[3px] rounded-[5.91px] hover:brightness-110" href={lo.mapLink} target="_blank">GET DIRECTIONS</a>
+                    <Link className="w-[220px] flex items-center h-[52px] bg-[#F8EA2B] justify-center text-[#004aad] text-[14px] font-bold font-['Montserrat'] tracking-[3px] rounded-[5.91px] hover:brightness-95" to={`/schools/${slug}`}>SCHOOL PAGE</Link>
                   </div>
                 </div>
               </div>
-            ))}
+            ) })}
           </div>
         </div>
       </section>

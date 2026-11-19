@@ -1,0 +1,1482 @@
+{
+ "announcement": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "announcement",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "announcement",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "enabled": true,
+  "linkText": "CLICK HERE TO ENROLL NOW",
+  "linkUrl": "https://kiddosatlanta.reg.eleyo.com/",
+  "text": "REGISTER FOR SY 26/27"
+ },
+ "anythingElse": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "anythingElse",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "anythingElse",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "availabilityText": "During the school year we are available Monday–Friday from 10am–6pm when school is in session via text or phone call at",
+  "contactDescription": "If you need to reach us at any time about anything regarding enrollment, your student in our program, financial information or anything else, reach out via",
+  "contactUsLink": {
+   "linkText": "Contact Us",
+   "urlSlug": "/contact"
+  },
+  "emailLink": {
+   "linkText": "Info@kiddosatlanta.com",
+   "url": "mailto:Info@kiddosatlanta.com"
+  },
+  "mainHeadline": "Anything Else?",
+  "phoneLink": {
+   "linkText": "404.955.3184",
+   "url": "tel:4049553184"
+  },
+  "summerTime": ""
+ },
+ "classesPage": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "classesPage",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "classesPage",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "classes": [
+   {
+    "_key": "k0028",
+    "description": "Premier Martial Arts – Buckhead teaches Martial Arts principles that build strength, character, discipline and focus.",
+    "meta": "MONDAYS · 2:15–3:30 · GRADES 2–5",
+    "name": "Martial Arts",
+    "price": "12 classes · $309 without uniform · $344 with uniform"
+   },
+   {
+    "_key": "k0029",
+    "description": "GymGo Kids brings portable bars, balance beams and a mini trampoline. Leotards recommended; bare feet or non-slip socks.",
+    "meta": "MONDAYS · 2:15–3:30 · GRADES PK–5",
+    "name": "Gymnastics",
+    "price": "12 classes · $309"
+   },
+   {
+    "_key": "k002a",
+    "description": "KIDS TV: students learn camera, lighting and production techniques from professional filmmakers and bring their story ideas to life as a team.",
+    "meta": "TUESDAYS · 2:15–3:45 · GRADES 3–5",
+    "name": "Film Making",
+    "price": "13 classes · $318"
+   },
+   {
+    "_key": "k002b",
+    "description": "Open to students learning to play as well as those who already play. Fundamentals step by step, then tactical and strategic principles.",
+    "meta": "TUESDAYS · 2:15–3:30 · GRADES K–5",
+    "name": "Smyrna Chess",
+    "price": "13 classes · $305"
+   },
+   {
+    "_key": "k002c",
+    "description": "Each week explores something new from engineering, physics, chemistry, biology, astronomy and more, through hands-on experiments.",
+    "meta": "WEDNESDAYS · 2:15–3:30 · GRADES K–2",
+    "name": "STEM Velocity Lab",
+    "price": "14 classes · $353"
+   },
+   {
+    "_key": "k002d",
+    "description": "Overtime Sports: kids practice sportsmanship, team work and the skills and drills needed to improve their soccer game.",
+    "meta": "WEDNESDAYS · 2:15–3:30 · GRADES K–3",
+    "name": "Soccer",
+    "price": "14 classes · $395"
+   },
+   {
+    "_key": "k002e",
+    "description": "Premier Martial Arts – Buckhead, for our younger students.",
+    "meta": "THURSDAYS · 2:15–3:30 · GRADES K–1",
+    "name": "Martial Arts",
+    "price": "14 classes · $353 without uniform · $388 with uniform"
+   },
+   {
+    "_key": "k002f",
+    "description": "Studio Go teaches the fundamentals of both Tap and Ballet. Dress code applies; please label all dance attire.",
+    "meta": "FRIDAYS · 2:15–3:30 · GRADES PK–2",
+    "name": "Tap/Ballet",
+    "price": "14 classes · $395"
+   },
+   {
+    "_key": "k002g",
+    "description": "Coach Inga has taught chess since 2004. Lessons, practice games, strategy exercises, game analysis and mini-tournaments.",
+    "meta": "FRIDAYS · 2:15–3:30 · GRADES K–5",
+    "name": "Inga Chess",
+    "price": "14 classes · $325"
+   }
+  ],
+  "ctaText": "REGISTER SY 26/27",
+  "ctaUrl": "https://kiddosatlanta.reg.eleyo.com/",
+  "description": "Chess, Martial Arts, Gymnastics, Film Making, STEM, Soccer and Tap/Ballet, right after the bell. You do not have to be in After School to participate in classes.",
+  "info": [
+   {
+    "_key": "k001z",
+    "detail": "Registration August 14–19 incurs a $25 late fee per class. No registration after August 19. No exceptions.",
+    "label": "REGISTER",
+    "value": "Online by Friday, August 14"
+   },
+   {
+    "_key": "k0020",
+    "detail": "Classes start Monday, August 24 and end Friday, December 11.",
+    "label": "DATES",
+    "value": "August 24 – December 11"
+   },
+   {
+    "_key": "k0021",
+    "detail": "Pay half now and the balance is auto charged on October 1st.",
+    "label": "PAYMENT",
+    "value": "Pay in full, or half now"
+   },
+   {
+    "_key": "k0022",
+    "detail": "Email by August 14 for information about scholarships or questions about Extracurriculars.",
+    "label": "QUESTIONS",
+    "value": "Info@KiddosAtlanta.com"
+   }
+  ],
+  "notes": [
+   "Any additional inclement weather days will be made up the week of December 14. Weather cancellations beyond that will not be made up or refunded.",
+   "Extracurricular Classes are not run by Kiddos Atlanta LLC. Kiddos Atlanta simply handles the registration. Each class is owned and operated by an individual company."
+  ],
+  "scheduleHeading": "Fall 2026 Schedule",
+  "scheduleSub": "August 24 – December 11 · grades in brackets",
+  "term": "Fall 2026",
+  "title": "Extracurricular <br> Classes",
+  "week": [
+   {
+    "_key": "k0023",
+    "day": "MONDAYS",
+    "items": [
+     "Martial Arts (2–5)",
+     "Gymnastics (PK–5)"
+    ]
+   },
+   {
+    "_key": "k0024",
+    "day": "TUESDAYS",
+    "items": [
+     "Film Making (3–5)",
+     "Smyrna Chess (K–5)"
+    ]
+   },
+   {
+    "_key": "k0025",
+    "day": "WEDNESDAYS",
+    "items": [
+     "Soccer (K–3)",
+     "S.T.E.M Velocity Lab (K–2)"
+    ]
+   },
+   {
+    "_key": "k0026",
+    "day": "THURSDAYS",
+    "items": [
+     "Martial Arts (K–1)"
+    ]
+   },
+   {
+    "_key": "k0027",
+    "day": "FRIDAYS",
+    "items": [
+     "Tap/Ballet (PK–2)",
+     "Inga Chess (K–5)"
+    ]
+   }
+  ]
+ },
+ "contactPage": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "contactPage",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "contactPage",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "categories": [
+   "General Inquiry",
+   "Enrollment Questions",
+   "Extracurricular Classes",
+   "Partnership / Collaboration",
+   "Feedback / Complaints",
+   "Other"
+  ],
+  "form": {
+   "errorText": "Something went wrong. Please email us at info@kiddosatlanta.com.",
+   "submitText": "SEND AWAY!",
+   "successText": "Thanks! Your message is on its way — we’ll be in touch soon."
+  },
+  "heroSection": {
+   "description": "[NEEDED: one line of intro for after school. The camp page uses a line about being one of Buckhead’s best summer camps.]"
+  },
+  "locationSection": {
+   "description": "Kiddos After School is onsite at three Atlanta schools. Each school has its own Kiddos director you can text or call.",
+   "headline": "Our Locations for SY 26/27"
+  },
+  "schoolOptions": [
+   "E. Rivers",
+   "Garden Hills",
+   "Atlanta Classical Academy",
+   "Not sure yet"
+  ]
+ },
+ "faqPage": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "faqPage",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "faqPage",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "faqs": [
+   {
+    "_key": "k003b",
+    "answer": "Pre-K through 5th grade at E. Rivers and Kindergarten through 6th grade at Atlanta Classical Academy. [GARDEN HILLS GRADES NEEDED]",
+    "question": "Q: What grades does Kiddos After School serve?"
+   },
+   {
+    "_key": "k003c",
+    "answer": "2:15–6:30pm at E. Rivers and Garden Hills, and until 6:00pm at Atlanta Classical, every day school is open. We are closed on school break days, holidays and inclement weather days.",
+    "question": "Q: What are the After School hours?"
+   },
+   {
+    "_key": "k003d",
+    "answer": "Onsite at each school: E. Rivers, Garden Hills Elementary and Atlanta Classical Academy. Kiddos does not provide transportation; students come to the cafeteria when the bell rings.",
+    "question": "Q: Where is After School located? Do you provide transportation?"
+   },
+   {
+    "_key": "k003e",
+    "answer": "Each day is broken into Snack Time, Outside Time, Homework Help and Activity Choices. We also offer After School Specials, Fun Fridays and a Showcase each semester.",
+    "question": "Q: What does a typical afternoon look like?"
+   },
+   {
+    "_key": "k003f",
+    "answer": "Yes. Smart Club is an hour each day for homework, studying or reading. Teachers are on hand to answer questions and review. We cannot guarantee accuracy or help with long term projects, so parents remain responsible for checking homework.",
+    "question": "Q: Will my child get homework help?"
+   },
+   {
+    "_key": "k003g",
+    "answer": "Garden Hills and Atlanta Classical offer Full Time or daily Drop-In. E. Rivers is Full Time enrollment only. Drop-in students must be registered before their first day and confirm each day by text, email or call.",
+    "question": "Q: Do you offer Drop-Ins or Part Time?"
+   },
+   {
+    "_key": "k003h",
+    "answer": "Ratios are 1 to 15, and 1 to 9 for Pre-K. Our After School teachers are energetic, trained and love their job.",
+    "question": "Q: What is the staff-to-student ratio? Who are the teachers?"
+   },
+   {
+    "_key": "k003i",
+    "answer": "There is a $50 annual registration fee per child. Full Time for a first child is $470/month at E. Rivers and $425/month at Garden Hills and Atlanta Classical. Drop-Ins are $28 per day. See <a href=\"/pricing\">Rates & Enrollment</a> for every rate.",
+    "question": "Q: How much does After School cost?"
+   },
+   {
+    "_key": "k003j",
+    "answer": "Online only, by Visa, MasterCard or Discover. Full Time tuition is auto charged to the card on file each month. Drop-Ins are totaled monthly and auto charged on the 10th of the following month. A declined card or late payment incurs a $25 fee. No cash or check.",
+    "question": "Q: How and when am I billed?"
+   },
+   {
+    "_key": "k003k",
+    "answer": "Yes. Second and third children pay reduced rates, and we offer sliding scale scholarships, first come first served, based on income and other extenuating circumstances. Scholarships for SY 26/27 are now closed.",
+    "question": "Q: Do you offer any discounts or financial assistance?"
+   },
+   {
+    "_key": "k003l",
+    "answer": "Email two weeks’ notice to cancel Full Time care. Your final balance is the instructional days enrolled multiplied by the daily rate, minus tuition paid. Switching between Drop-In and Full Time costs $25; the first change is free.",
+    "question": "Q: What is your cancellation policy?"
+   },
+   {
+    "_key": "k003m",
+    "answer": "Late fees are auto charged to the card on file: $5 plus $1 per minute for the first two occurrences, $15 plus $1 per minute for occurrences 3–5, and $30 plus $1 per minute for occurrences 6–8. After a ninth late pick-up the student is no longer eligible to attend.",
+    "question": "Q: What happens if I am late for pick-up?"
+   },
+   {
+    "_key": "k003n",
+    "answer": "Staff use positive reinforcement. If unsafe or inappropriate behavior continues after three written notices, the student has a one week probation, and continued problems lead to dismissal.",
+    "question": "Q: What is your behavior policy?"
+   },
+   {
+    "_key": "k003o",
+    "answer": "Classes such as Chess, Martial Arts, Gymnastics, Film Making, STEM, Soccer and Tap/Ballet, each owned and operated by an individual company, with registration handled by Kiddos. You do not have to be in After School to participate. See <a href=\"/classes\">Extracurricular Classes</a>.",
+    "question": "Q: What are Extracurricular Classes? Does my child have to be in After School?"
+   },
+   {
+    "_key": "k003p",
+    "answer": "Email Info@KiddosAtlanta.com, call or text 404.955.3184, or reach your school’s director directly: E. Rivers 404.821.8210, Garden Hills 404.922.8156, Atlanta Classical 404.821.8113. You can also use our <a href=\"/contact\">Contact Us</a> page.",
+    "question": "Q: I have more questions. How do I contact you?"
+   }
+  ],
+  "heroSection": {
+   "description": "Kiddos takes the guesswork out of after school. From homework help to pick-up, we’ve got you covered with answers that are clear, caring, and full of peace of mind.",
+   "mainHeadline": "Frequently Asked Questions..."
+  }
+ },
+ "footer": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "footer",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "footer",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "copyrightText": "© 2025 KIDDOS ATLANTA, LLC.",
+  "description": "Onsite after school programs at E. Rivers, Garden Hills and Atlanta Classical Academy, every day school is open. Each day is broken into Snack Time, Outside Time, Homework Help and Activity Choices.",
+  "email": "info@kiddosatlanta.com",
+  "externalLinks": [
+   {
+    "_key": "k000l",
+    "bgColor": "#C9368A",
+    "name": "KIDDOS ATLANTA",
+    "url": "https://kiddosatlanta.com/"
+   },
+   {
+    "_key": "k000m",
+    "bgColor": "#00B6BE",
+    "name": "KIDDOS EARLY LEARNING CENTER",
+    "url": "https://kiddoselc.com/"
+   },
+   {
+    "_key": "k000n",
+    "bgColor": "#F58235",
+    "name": "KIDDOS AFTERSCHOOL",
+    "url": "https://kiddosatlanta.com/after-school-programs"
+   },
+   {
+    "_key": "k000o",
+    "bgColor": "#8BC53F",
+    "name": "KIDDOS DAY CAMP ",
+    "url": "https://www.kiddossummercamp.com/"
+   }
+  ],
+  "locations": [
+   {
+    "_key": "k000i",
+    "address": "8 Peachtree Battle Ave, Atlanta, GA 30305",
+    "mapLink": "https://www.google.com/maps/search/?api=1&query=E.+Rivers+Elementary+8+Peachtree+Battle+Ave+Atlanta+GA+30305",
+    "name": "E. Rivers"
+   },
+   {
+    "_key": "k000j",
+    "address": "285 Sheridan Drive, Atlanta, GA 30305",
+    "mapLink": "https://www.google.com/maps/search/?api=1&query=Garden+Hills+Elementary+285+Sheridan+Dr+NE+Atlanta+GA+30305",
+    "name": "Garden Hills"
+   },
+   {
+    "_key": "k000k",
+    "address": "3260 Northside Dr NW, Atlanta, GA 30305",
+    "mapLink": "https://www.google.com/maps/place/3260+Northside+Dr+NW,+Atlanta,+GA+30305",
+    "name": "Atlanta Classical Academy"
+   }
+  ],
+  "phone": "404.955.3184",
+  "socialLinks": [
+   {
+    "_key": "k000p",
+    "platform": "Facebook",
+    "url": "https://web.facebook.com/kiddosatlanta/?_rdc=1&_rdr#"
+   },
+   {
+    "_key": "k000q",
+    "platform": "Instagram",
+    "url": "https://www.instagram.com/kiddos_camp/?igsh=MWI3cnczZHJ1OW4zZA%3D%3D#"
+   }
+  ],
+  "socialsText": "@[AFTER SCHOOL HANDLE]",
+  "title": "KIDDOS AFTER SCHOOL"
+ },
+ "homePage": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "homePage",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "homePage",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "activityChoices": {
+   "ctaLink": "schedule",
+   "ctaText": "LEARN MORE",
+   "description": "Each day your student will get to choose between 4 activity choices! We always offer a variety including sports, Creative Writing, Science, Drama, Nature, Art, Dance, Gymnastics, Music and more!",
+   "headline": "EVERY DAY IS <yellow>DIFFERENT.</yellow>",
+   "tagline": "ACTIVITY CHOICES"
+  },
+  "benefits": {
+   "items": [
+    {
+     "_key": "k000v",
+     "body": "A wide variety of prepackaged snacks to choose from each day, and time to relax and socialize with friends and Kiddos teachers.",
+     "titleBlue": "Time",
+     "titleGreen": "Snack"
+    },
+    {
+     "_key": "k000w",
+     "body": "An hour each day to do homework, study or read. Teachers are on hand to answer questions and review.",
+     "titleBlue": "Homework Help",
+     "titleGreen": "Smart Club"
+    },
+    {
+     "_key": "k000x",
+     "body": "Each day your student chooses between 4 activities: sports, Creative Writing, Science, Drama, Nature, Art, Dance, Gymnastics, Music and more!",
+     "titleBlue": "Choices",
+     "titleGreen": "Activity"
+    },
+    {
+     "_key": "k000y",
+     "body": "From Super Hero Club and Fashion Design to Flag Football and our Young Adults club for 5th graders. Specials meet once each week.",
+     "titleBlue": "Specials",
+     "titleGreen": "Long Term"
+    },
+    {
+     "_key": "k000z",
+     "body": "Always something to look forward to, from Spanish Celebranos and Fort Building to our Holiday Restaurant and Newspaper Day.",
+     "titleBlue": "Fridays",
+     "titleGreen": "Fun"
+    },
+    {
+     "_key": "k0010",
+     "body": "Our leaders are dedicated, and our After School teachers are energetic, trained and love their job!",
+     "titleBlue": "Energetic Teachers",
+     "titleGreen": "Trained &"
+    },
+    {
+     "_key": "k0011",
+     "body": "Ratios are 1 to 15, and 1 to 9 for our Pre-K students.",
+     "titleBlue": "Ratios",
+     "titleGreen": "1 to 15"
+    },
+    {
+     "_key": "k0012",
+     "body": "[NEEDED: one or two sentences describing the semester Showcase]",
+     "titleBlue": "Each Semester",
+     "titleGreen": "A Showcase"
+    },
+    {
+     "_key": "k0013",
+     "body": "Every October we take part in Lights On Afterschool, a nationwide celebration of the role afterschool programs play for children, families and communities.",
+     "titleBlue": "Afterschool",
+     "titleGreen": "Lights On"
+    },
+    {
+     "_key": "k0014",
+     "body": "Chess, Martial Arts, Gymnastics, Film Making, STEM, Soccer, Tap/Ballet and more. You do not have to be in After School to participate.",
+     "titleBlue": "Classes",
+     "titleGreen": "Extracurricular"
+    }
+   ],
+   "mainHeadline": "What Makes Kiddos The Best After School For <green>Your Kiddos?</green>",
+   "summary": "Our days are well planned out, our leaders are dedicated, our customer service is stellar, ratios are 1 to 15, our students are the best AND our After School teachers are energetic, trained and love their job!"
+  },
+  "dayInLife": {
+   "ctaLink": "schedule",
+   "ctaText": "LEARN MORE",
+   "mainHeadline": "A Day in the Life of a <br> Kiddos After Schooler",
+   "steps": [
+    "After the bell rings students come to the cafeteria, where they are greeted with a big smile and a wide variety of snack options.",
+    "Each day is broken into Snack Time, Outside Time, Homework Help and Activity Choices.",
+    "Smart Club is an hour each day for students to do homework, study or read.",
+    "Each day your student gets to choose between 4 activity choices. Every day is different!",
+    "We also offer After School Specials, Fun Fridays and a Showcase each semester!"
+   ]
+  },
+  "hero": {
+   "ctaLink": "schedule",
+   "ctaText": "LEARN MORE",
+   "description": "After the bell rings, students are greeted with a big smile and a wide variety of snack options. Then it’s Outside Time, Homework Help and Activity Choices, with dedicated leaders and teachers who love their job.",
+   "mainTitle": "Atlanta’s Best After School For Your Kiddos"
+  },
+  "intro": {
+   "ctaLink": "values",
+   "ctaText": "LEARN MORE",
+   "description": "An onsite after school program at E. Rivers, Garden Hills and Atlanta Classical Academy. Each day is broken into Snack Time, Outside Time, Homework Help and Activity Choices. We also offer After School Specials, Fun Fridays and a Showcase each semester!",
+   "infoBlocks": [
+    {
+     "_key": "k000r",
+     "blockTitle": "DATES",
+     "mainValue": "School Year 26/27, every day school is open.",
+     "subText": "Closed on school break days, holidays and inclement weather days."
+    },
+    {
+     "_key": "k000s",
+     "blockTitle": "HOURS",
+     "mainValue": "We’re Open 2:15 – 6:30 PM.",
+     "subText": "E. Rivers and Garden Hills run 2:15–6:30pm. Atlanta Classical is open until 6:00pm."
+    },
+    {
+     "_key": "k000t",
+     "blockTitle": "GRADES",
+     "mainValue": "We Accept Pre-K – 6th grade.",
+     "subText": "E. Rivers: Pre-K–5th. Atlanta Classical: K–6th. Garden Hills: [GRADES NEEDED]"
+    },
+    {
+     "_key": "k000u",
+     "blockTitle": "ENROLL",
+     "mainValue": "Register for SY 26/27",
+     "subText": "Full Time at every school. Daily Drop-Ins at Garden Hills and Atlanta Classical. $50 annual registration fee per child."
+    }
+   ],
+   "mainHeadline": "Kiddos After School is.."
+  },
+  "testimonials": {
+   "headline": "OUR COMMUNITY LOVES KIDDOS !",
+   "items": [
+    {
+     "_key": "k0015",
+     "reviewText": "[NEEDED: after school parent testimonial, 2–3 sentences]",
+     "reviewerIdentity": "After School Parent",
+     "reviewerName": "[Parent Name],"
+    },
+    {
+     "_key": "k0016",
+     "reviewText": "[NEEDED: after school parent testimonial, 2–3 sentences]",
+     "reviewerIdentity": "After School Parent",
+     "reviewerName": "[Parent Name],"
+    },
+    {
+     "_key": "k0017",
+     "reviewText": "[NEEDED: after school parent testimonial, 2–3 sentences]",
+     "reviewerIdentity": "After School Parent",
+     "reviewerName": "[Parent Name],"
+    }
+   ],
+   "tagline": "TESTIMONIALS"
+  }
+ },
+ "kiddosWayPage": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "kiddosWayPage",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "kiddosWayPage",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "growthSection": {
+   "bodyText": "What began as a summer day camp grew into year-round programs. Today Kiddos runs after school programs at three Atlanta schools (E. Rivers, Atlanta Classical Academy and Garden Hills), along with our summer Day Camp and the year-round Kiddos Early Learning Center. Keeping The Kiddos Way alive takes an amazing team that feels more like family, or “framily,” as we say.",
+   "headline": "Our Growth"
+  },
+  "heroSection": {
+   "description": "Since 2011, Kiddos has been all about engaging, educating and empowering our kiddos, with a team that’s as passionate as they come.",
+   "mainHeadline": "An After School that Truly Cares About Your Kiddos"
+  },
+  "pinkyPromiseSection": {
+   "pinkyPromiseSubtitle": "We Take Care of Each Other",
+   "pinkyPromiseTitle": "Our Pinky <green>Promise</green>"
+  },
+  "recognitionSection": {
+   "bodyText": "Kiddos has been recognized in the community for excellence. Our after school programs have earned a “Best Afterschool Program” title in a local poll, and our camp was voted “Best Summer Camp in Atlanta” in Red Tricycle’s Totally Awesome Awards. These awards mean a lot to us because they come from the families we serve.<br><br>[NEEDED: the name and year of the “Best Afterschool Program” award, plus any other after school recognition to list here]",
+   "headline": "Recognition <br> <green>& Community Trust</green>"
+  },
+  "storyMissionSection": {
+   "bodyText": "Kiddos was born from a simple idea: combine all the good things we’ve seen in youth programs and leave out the not-so-good. Atlanta native Lara Cornett founded Kiddos in 2011, and her approach became “The Kiddos Way”: a fun place to play where kids get to make choices, feel safe and build confidence, guided by energetic role models who truly care about them.",
+   "headline": "Our Story <br> & Our Mission"
+  },
+  "teamSection": {
+   "bodyText": "All team members undergo background checks and rigorous training. We train our teachers to prioritize safety and to be engaging role models who bring creativity, enthusiasm and empathy. Some of our staff literally grew up with Kiddos: a camper from 2011 is now a director.",
+   "ctaLink": "/team",
+   "ctaText": "MEET OUR TEAM",
+   "headline": "Our Team"
+  }
+ },
+ "lastSection": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "lastSection",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "lastSection",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "boldTitle": "ONE CLICK AWAY",
+  "ctaText": "ENROLL NOW",
+  "ctaUrl": "https://kiddosatlanta.reg.eleyo.com/",
+  "description": "[NEEDED: closing paragraph for after school, 2–3 sentences. The camp site uses a warm sign-off here that ends “See you soon!”]",
+  "preTitle": "THE BEST <br> AFTER SCHOOL EXPERIENCE <br> FOR YOUR KIDDO IS JUST"
+ },
+ "navigation": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "navigation",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "navigation",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "contactButton": {
+   "link": "/contact",
+   "text": "CONTACT US"
+  },
+  "enrollButton": {
+   "link": "https://kiddosatlanta.reg.eleyo.com/",
+   "text": "ENROLL"
+  },
+  "menu": [
+   {
+    "_key": "k000d",
+    "label": "HOME",
+    "link": "/"
+   },
+   {
+    "_key": "k000e",
+    "children": [
+     {
+      "_key": "k0004",
+      "label": "THE KIDDOS WAY",
+      "link": "/values"
+     },
+     {
+      "_key": "k0005",
+      "label": "OUR TEAM",
+      "link": "/team"
+     }
+    ],
+    "label": "ABOUT US"
+   },
+   {
+    "_key": "k000f",
+    "children": [
+     {
+      "_key": "k0006",
+      "label": "SCHEDULE & ACTIVITIES",
+      "link": "/schedule"
+     },
+     {
+      "_key": "k0007",
+      "label": "RATES & ENROLLMENT",
+      "link": "/pricing"
+     },
+     {
+      "_key": "k0008",
+      "label": "EXTRACURRICULAR CLASSES",
+      "link": "/classes"
+     },
+     {
+      "_key": "k0009",
+      "label": "PARENT & GUARDIAN INFO",
+      "link": "/policies"
+     }
+    ],
+    "label": "PROGRAM DETAILS"
+   },
+   {
+    "_key": "k000g",
+    "children": [
+     {
+      "_key": "k000a",
+      "label": "KIDDOS @ E. RIVERS",
+      "link": "/schools/e-rivers"
+     },
+     {
+      "_key": "k000b",
+      "label": "KIDDOS @ GARDEN HILLS",
+      "link": "/schools/garden-hills"
+     },
+     {
+      "_key": "k000c",
+      "label": "KIDDOS @ ATLANTA CLASSICAL",
+      "link": "/schools/atlanta-classical"
+     }
+    ],
+    "label": "LOCATIONS"
+   },
+   {
+    "_key": "k000h",
+    "label": "FAQ’S",
+    "link": "/faq"
+   }
+  ],
+  "mobileOrder": [
+   "HOME",
+   "PROGRAM DETAILS",
+   "ABOUT US",
+   "LOCATIONS",
+   "FAQ’S"
+  ]
+ },
+ "policiesPage": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "policiesPage",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "policiesPage",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "fullPolicies": {
+   "links": [],
+   "text": "Read the full Policies & Procedures for your school"
+  },
+  "pageDescription": "To keep After School smooth and enjoyable for everyone, please take note of our key policies.<br><br>You will be required to accept and follow all our policies before completing registration. Here are the highlights.",
+  "pageTitle": "Tips for Parents <br> & Guardians",
+  "policies": [
+   {
+    "_key": "k0032",
+    "bodyText": "Our staff use positive reinforcement. If unsafe or inappropriate behavior continues after three written notices, the student has a one week probation, and continued problems lead to dismissal. Kiddos may dismiss a student immediately if others or staff are at risk. Conflicts are handled through redirection, peer resolution, discussion, removal of privileges and parent meetings.",
+    "headline": "Student <br> Conduct"
+   },
+   {
+    "_key": "k0033",
+    "bodyText": "Students get a maximum of one hour of homework time per day during SMART CLUB, with a 1 to 15 ratio, and finish any remaining work at home. Staff cannot help with long term projects or book reports and do not guarantee accuracy, so parents remain responsible for checking homework. There is no homework time during special events and rehearsals (about 4 days per year).",
+    "headline": "Homework <br> & Smart Club"
+   },
+   {
+    "_key": "k0034",
+    "bodyText": "Electronics and toys are not allowed, and Kiddos is not responsible for any items brought in. Parents, please stay off your cell phone when picking up your child.",
+    "headline": "Electronics <br> Policy"
+   },
+   {
+    "_key": "k0035",
+    "bodyText": "Text or call your school’s Kiddos director as soon as possible if your student will be absent. After two absences without notice, $10 is charged to the account. We email quarterly updates, emergencies and invoices, and ask you to keep phone numbers, addresses, emergency contacts and pick-up lists up to date.",
+    "headline": "Communication <br> & Absences"
+   },
+   {
+    "_key": "k0036",
+    "bodyText": "An authorized adult must report to the cafeteria to sign out their child and keep the child with them until they leave the building. Students must be picked up by 6:30pm. Late fees start at $5 plus $1 per minute and increase with each occurrence; a ninth late pick-up ends eligibility.<br><br>[CONFIRM: Atlanta Classical is open until 6:00pm, but its policy page gives a 6:30 pick-up deadline.]",
+    "headline": "Pick-Up <br> & Late Pick-Up"
+   },
+   {
+    "_key": "k0037",
+    "bodyText": "Kiddos will not give medication without a completed medical form. Parents must provide inhalers or EpiPens for known conditions. Children with a contagious illness or a fever may not attend, and sick children must be picked up promptly. Enrolled children must have health insurance.",
+    "headline": "Medical Needs <br> & Illness"
+   },
+   {
+    "_key": "k0038",
+    "bodyText": "Registered students who are signed in receive snacks and lemonade. Please report allergies, their severity and any required supplies or steps. You may pack extra snacks.",
+    "headline": "Snacks <br> & Allergies"
+   },
+   {
+    "_key": "k0039",
+    "bodyText": "Kiddos is closed on school break days and holidays, and closes when school is closed for weather or dismisses early. No reimbursement is given for those days.",
+    "headline": "Weather <br> & Closures"
+   },
+   {
+    "_key": "k003a",
+    "bodyText": "By registering, parents grant Kiddos and its partners the right to use their child’s image, name and statements in advertising and promotions.",
+    "headline": "Photos <br> & Social Media"
+   }
+  ]
+ },
+ "ratesPage": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "ratesPage",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "ratesPage",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "discountsSection": {
+   "first": {
+    "heading": "SIBLING DISCOUNT:",
+    "subHeading": "Discounted rates for a 2nd and 3rd child at every school. See the table above."
+   },
+   "paySchedule": {
+    "ctaLink": "/classes",
+    "ctaText": "SEE CLASSES",
+    "heading": "EXTRACURRICULAR CLASSES:",
+    "subHeading": "Registered and priced separately, per class. You do not have to be in After School to participate."
+   },
+   "second": {
+    "heading": "DAILY DROP-INS:",
+    "subHeading": "At Garden Hills and Atlanta Classical. Drop-ins are totaled at the end of the month and auto-charged on the 10th of the following month. Not offered at E. Rivers."
+   },
+   "third": {
+    "heading": "PRE-K:",
+    "subHeading": "Pre-K students pay an additional $50/month due to smaller ratios (1 to 9 instead of 1 to 15)."
+   }
+  },
+  "heroSection": {
+   "headline": "After School Rates <br> & Registration <br> Information",
+   "subHeadline": "Registration for School Year 26/27 is online. You will be required to accept and follow all our policies before completing registration. Follow the steps below to get started:"
+  },
+  "policiesSection": {
+   "cancelationText": "To cancel full time care, email two weeks’ notice. Your final balance is the instructional days enrolled multiplied by the daily rate, minus the tuition paid, so you will either owe a balance or receive a refund. Switching between Drop-In and Full Time costs $25; the first change is free.",
+   "scholarshipLink": "mailto:info@KiddosAtlanta.com?subject=Scholarship%20Application",
+   "scholarshipText": "We offer sliding scale scholarships, first come first served. We consider income and other extenuating circumstances, and you will be required to provide supporting documents for us to review the application. Request an application at <a href=\"mailto:Info@KiddosAtlanta.com\">Info@KiddosAtlanta.com</a>.<br><br><strong>Scholarships for SY 26/27 are now closed.</strong>"
+  },
+  "ratesBySchool": {
+   "columns": [
+    "Kiddos @ E. Rivers",
+    "Kiddos @ Garden Hills",
+    "Kiddos @ Atlanta Classical"
+   ],
+   "confirm": "[CONFIRM: the site labels the larger figures “per semester”, but 5 months at the monthly rate is half that amount. Is the larger figure per school year?]",
+   "heading": "Rates by School, SY 26/27",
+   "note": "Monthly rates are a 5 month fixed rate.",
+   "rows": [
+    {
+     "_key": "k001r",
+     "label": "Grades",
+     "values": [
+      "Pre-K – 5th",
+      "[GRADES NEEDED]",
+      "K – 6th"
+     ]
+    },
+    {
+     "_key": "k001s",
+     "label": "Hours",
+     "values": [
+      "2:15 – 6:30pm",
+      "2:15 – 6:30pm",
+      "Until 6:00pm"
+     ]
+    },
+    {
+     "_key": "k001t",
+     "label": "Enrollment",
+     "values": [
+      "Full Time only",
+      "Full Time or daily Drop-In",
+      "Full Time or Drop-In"
+     ]
+    },
+    {
+     "_key": "k001u",
+     "label": "Full Time, 1st child",
+     "values": [
+      "$4,700 per semester<br>or $470 / month",
+      "$4,250 per semester<br>or $425 / month",
+      "$4,250 per semester<br>or $425 / month"
+     ]
+    },
+    {
+     "_key": "k001v",
+     "label": "Full Time, 2nd child",
+     "values": [
+      "$3,700 per semester<br>or $370 / month",
+      "$3,250 per semester<br>or $325 / month",
+      "$3,250 per semester<br>or $325 / month"
+     ]
+    },
+    {
+     "_key": "k001w",
+     "label": "Full Time, 3rd child",
+     "values": [
+      "$1,700 per semester<br>or $170 / month",
+      "$1,250 per semester<br>or $125 / month",
+      "$1,250 per semester<br>or $125 / month"
+     ]
+    },
+    {
+     "_key": "k001x",
+     "label": "Drop-In, per day<br>1st / 2nd / 3rd child",
+     "values": [
+      "Not offered",
+      "$28 / $18 / $10",
+      "$28 / $18 / $10"
+     ]
+    },
+    {
+     "_key": "k001y",
+     "label": "Pre-K add-on",
+     "values": [
+      "+ $50 / month",
+      "+ $50 / month<br>+ $4 / day for Drop-Ins",
+      "Not applicable"
+     ]
+    }
+   ]
+  },
+  "ratesSection": {
+   "baseRate": "$50 / Per Child",
+   "confirm": "[CONFIRM: the school pages say the card is charged on the 1st of each month; the policy pages say the 15th.]",
+   "deposit": "From $425 / Month",
+   "details": "We auto charge the card on file in full each month. Any declined card results in a $25 fee, and the child cannot return until an updated card is placed on file. If there is a financial hardship, contact Kiddos in advance of the charge to avoid a penalty. Online payment only: Visa, MasterCard and Discover. No cash or check.",
+   "heading": "After School Rates, <br> Fees & Discounts",
+   "paySchedule": "Auto-Charged Monthly, Online Only"
+  },
+  "steps": [
+   {
+    "_key": "k001m",
+    "description": "Review all Kiddos policies and procedures for your school: <a href=\"/schools/e-rivers\">E. Rivers</a>, <a href=\"/schools/garden-hills\">Garden Hills</a> or <a href=\"/schools/atlanta-classical\">Atlanta Classical</a>. The highlights are on our <a href=\"/policies\">Parent & Guardian Info</a> page.",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-b696a200ddadb5252e56b8d1304bde099e3ceebb-90x144-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "1. Review the Policies:"
+   },
+   {
+    "_key": "k001n",
+    "description": "Click the “Enroll” button below (or on our menu) to go to our online registration portal, then log in or create a new account.",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-1ca2f5f5ffe77ca1344d2321a61123814c034c61-147x153-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "2. Setup Your Account:"
+   },
+   {
+    "_key": "k001o",
+    "description": "Register each child for Full Time or Drop In, answer all questions thoroughly and update any new information. Students may start only on Mondays, when space is available. Same-day registration is not allowed.",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-91fb60be9cae6bbf2c70a4f4ab3bcccd2583301a-147x151-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "3. Register Each Child"
+   },
+   {
+    "_key": "k001p",
+    "description": "Once you complete registration you will receive an email that indicates your registration went through.",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-dab66a7fc08ec4c46e4e6685ecafbb290150bf5e-139x151-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "4. Confirmation Email"
+   },
+   {
+    "_key": "k001q",
+    "description": "Send a transportation note to your child’s teacher. We will anticipate your student arriving on the start date you select. If the start date changes, text your school’s Kiddos director.",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-e7c9383d3693c4e21119cba1ba31fda7e3ad490b-140x153-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "5. Tell Your Teacher & Start"
+   }
+  ]
+ },
+ "schedulePage": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "schedulePage",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "schedulePage",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "activities": [
+   {
+    "_key": "k0018",
+    "description": "[NEEDED: 2 sentences on after school sports, e.g. Flag Football]",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-0ead9295f7a6a3636d3054431eca6f0080835d0d-121x102-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "SPORTS <br> & MORE SPORTS"
+   },
+   {
+    "_key": "k0019",
+    "description": "[NEEDED: 2 sentences on science and nature activities]",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-9ad72cb4836da349c6ab35e81a2348bf0f88f914-82x96-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "SCIENCE <br> & NATURE"
+   },
+   {
+    "_key": "k001a",
+    "description": "[NEEDED: 2 sentences on art and creative writing]",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-50be3fd0736f9982de4c8f172a422ff9d6dd6e64-124x115-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "ART <br> & CREATIVE WRITING"
+   },
+   {
+    "_key": "k001b",
+    "description": "[NEEDED: 2 sentences on drama and music]",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-ac52c19c9661cc3b8f54de1d6334de34aa9fcafe-127x88-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "DRAMA <br> & MUSIC"
+   },
+   {
+    "_key": "k001c",
+    "description": "[NEEDED: 2 sentences on dance and gymnastics]",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-506c376f84e02a705dec9d56d66fa73d14eddf21-120x71-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "DANCE <br> & GYMNASTICS"
+   },
+   {
+    "_key": "k001d",
+    "description": "An hour each day for students to do homework, study or read. We set clear standards and expectations so students are encouraged to do their best, and teachers are on hand to answer questions and review.",
+    "icon": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-ce78a8b3daddcd5b782d83c45de43e60ea761f89-140x133-svg",
+      "_type": "reference"
+     }
+    },
+    "title": "HOMEWORK HELP <br> IN SMART CLUB"
+   }
+  ],
+  "campersChoice": {
+   "description": "Each day your student will get to choose between 4 activity choices! Every day is different! Here are some of the activities your student gets to choose from each day.",
+   "titleWhite": "Activity",
+   "titleYellow": "Choices"
+  },
+  "dailyProgram": {
+   "headline": "A DAY IN THE LIFE <br> AT KIDDOS AFTER SCHOOL",
+   "schedule": [
+    {
+     "_key": "k001e",
+     "description": "Students come to the cafeteria, where they are greeted with a big smile. After School runs every day school is open.",
+     "label": "The Bell Rings:",
+     "time": "2:15pm"
+    },
+    {
+     "_key": "k001f",
+     "description": "We provide a wide variety of prepackaged snacks for students to choose from each day! Snack time is an enjoyable time to relax and socialize with friends and Kiddos teachers.",
+     "label": "Snack Time",
+     "time": "[TIME]"
+    },
+    {
+     "_key": "k001g",
+     "description": "[NEEDED: 2 sentences on Outside Time]",
+     "label": "Outside Time",
+     "time": "[TIME]"
+    },
+    {
+     "_key": "k001h",
+     "description": "An hour each day for homework, studying or reading. While we cannot guarantee accuracy, we create an atmosphere that encourages responsibility, confidence, hard work, patience and independence.",
+     "label": "Smart Club (Homework Time)",
+     "time": "[TIME] · 1 hour"
+    },
+    {
+     "_key": "k001i",
+     "description": "Each day your student chooses between 4 activity choices. We always offer a variety including sports, Creative Writing, Science, Drama, Nature, Art, Dance, Gymnastics, Music and more!",
+     "label": "Activity Choices",
+     "time": "[TIME]"
+    },
+    {
+     "_key": "k001j",
+     "description": "Long term Specials meet once each week during after school, and we hold a Showcase each semester.",
+     "label": "Specials",
+     "time": "Once a Week"
+    },
+    {
+     "_key": "k001k",
+     "description": "Our Fridays are ALWAYS something to look forward to! We mix Kiddos traditions and favorites with new ideas, from our Spanish Celebranos and Fort Building to our Holiday Restaurant and Newspaper Day.",
+     "label": "Fun Fridays",
+     "time": "Fridays Only"
+    },
+    {
+     "_key": "k001l",
+     "description": "An authorized adult reports to the cafeteria to sign out their child. E. Rivers and Garden Hills close at 6:30pm; Atlanta Classical is open until 6:00pm.",
+     "label": "Pick-Up",
+     "time": "By 6:30pm"
+    }
+   ]
+  },
+  "firstSection": {
+   "description": "After the bell rings students come to the cafeteria, where they are greeted with a big smile and a wide variety of snack options.",
+   "title": "For Kiddos After School, <br> Every Day is <green>Different</green>"
+  },
+  "heroSection": {
+   "calendarText": "CHECK OUT OUR SAMPLE CALENDAR (PDF)",
+   "calendarUrl": "",
+   "description": "Each day is broken into Snack Time, Outside Time, Homework Help and Activity Choices. We also offer After School Specials, Fun Fridays and a Showcase each semester! Our days are well planned out, our leaders are dedicated, our customer service is stellar and our ratios are 1 to 15.",
+   "titleBlue": "What Goes On During <br> After School?",
+   "titleGreen": "A Whole Bunch!"
+  },
+  "questsSection": {
+   "description": "We love finding things kids REALLY love and making them into a long term skill or project! From Super Hero Club and Fashion Design to Flag Football and our Young Adults club for 5th graders. Each semester we offer long term Specials that meet once each week during after school!",
+   "titleMainOne": "SPECIALS",
+   "titleMainTwo": "FOR EVERY KIDDO!"
+  }
+ },
+ "school": [
+  {
+   "_createdAt": "2026-11-19T01:15:24Z",
+   "_id": "school-e-rivers",
+   "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+   "_type": "school",
+   "_updatedAt": "2026-11-19T01:15:24Z",
+   "contact": {
+    "director": "Rebecca Cornwall",
+    "directorTitle": "Rivers Director",
+    "email": "Rivers@KiddosAtlanta.com",
+    "phone": "404.821.8210"
+   },
+   "documents": {
+    "policiesUrl": ""
+   },
+   "location": {
+    "address": "8 Peachtree Battle Ave, Atlanta GA 30305",
+    "locationNote": "8 Peachtree Battle Ave, Atlanta GA 30305. Kiddos does not provide transportation.",
+    "mapLink": "https://www.google.com/maps/search/?api=1&query=E.+Rivers+Elementary+8+Peachtree+Battle+Ave+Atlanta+GA+30305"
+   },
+   "media": {},
+   "name": "Kiddos @ E. Rivers",
+   "order": 1,
+   "program": {
+    "enrollment": "Pre-K – 5th grade, Full Time only",
+    "enrollmentNote": "We are not offering Drop Ins or Part Time. Check out <a href=\"https://kiddosatlanta.com\">Haverty Hollow After School</a> for more flexible enrollment options.",
+    "grades": "Pre-K – 5th grade",
+    "hours": "2:15 – 6:30pm"
+   },
+   "rates": {
+    "ratesNote": "Monthly rates are a 5 month fixed rate. Pre-K students pay an additional $50/month due to smaller ratios (1 to 9 instead of 1 to 15). We auto charge the card on file in full on the 1st of each month. Any declined card results in a $25 fee and the child cannot return until an updated card is placed on file. No cash or check.",
+    "rows": [
+     {
+      "_key": "k002h",
+      "label": "Annual Registration Fee:",
+      "value": "$50 / Per Child"
+     },
+     {
+      "_key": "k002i",
+      "label": "1st Child:",
+      "value": "$4,700 per semester · or $470 / month"
+     },
+     {
+      "_key": "k002j",
+      "label": "2nd Child:",
+      "value": "$3,700 per semester · or $370 / month"
+     },
+     {
+      "_key": "k002k",
+      "label": "3rd Child:",
+      "value": "$1,700 per semester · or $170 / month"
+     },
+     {
+      "_key": "k002l",
+      "label": "Pre-K:",
+      "value": "+ $50 / month"
+     }
+    ]
+   },
+   "short": "E. Rivers",
+   "slug": {
+    "_type": "slug",
+    "current": "e-rivers"
+   }
+  },
+  {
+   "_createdAt": "2026-11-19T01:15:24Z",
+   "_id": "school-garden-hills",
+   "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+   "_type": "school",
+   "_updatedAt": "2026-11-19T01:15:24Z",
+   "contact": {
+    "director": "Sophie Quillin",
+    "directorTitle": "GHES Director",
+    "email": "Ghes@KiddosAtlanta.com",
+    "phone": "404.922.8156"
+   },
+   "documents": {
+    "policiesUrl": ""
+   },
+   "location": {
+    "address": "285 Sheridan Drive, Atlanta, GA 30305",
+    "locationNote": "285 Sheridan Drive, Atlanta, GA 30305. Kiddos does not provide transportation.",
+    "mapLink": "https://www.google.com/maps/search/?api=1&query=Garden+Hills+Elementary+285+Sheridan+Dr+NE+Atlanta+GA+30305"
+   },
+   "media": {},
+   "name": "Kiddos @ Garden Hills",
+   "order": 2,
+   "program": {
+    "enrollment": "[GRADES NEEDED], Full Time or daily Drop-In",
+    "enrollmentNote": "Drop-in students must be registered before their first day and confirm each day by text, email or call.",
+    "grades": "[GRADES NEEDED]",
+    "hours": "2:15 – 6:30pm"
+   },
+   "rates": {
+    "ratesNote": "Monthly rates are a 5 month fixed rate. Drop-ins are totaled at the end of the month and auto-charged on the 10th of the following month. Any declined card results in a $25 fee and the child cannot return until an updated card is placed on file. No cash or check.",
+    "rows": [
+     {
+      "_key": "k002m",
+      "label": "Annual Registration Fee:",
+      "value": "$50 / Per Child"
+     },
+     {
+      "_key": "k002n",
+      "label": "1st Child:",
+      "value": "$4,250 per semester · or $425 / month"
+     },
+     {
+      "_key": "k002o",
+      "label": "2nd Child:",
+      "value": "$3,250 per semester · or $325 / month"
+     },
+     {
+      "_key": "k002p",
+      "label": "3rd Child:",
+      "value": "$1,250 per semester · or $125 / month"
+     },
+     {
+      "_key": "k002q",
+      "label": "Drop-In, per day:",
+      "value": "$28 / $18 / $10 (1st / 2nd / 3rd child)"
+     },
+     {
+      "_key": "k002r",
+      "label": "Pre-K:",
+      "value": "+ $50 / month · + $4 / day for Drop-Ins"
+     }
+    ]
+   },
+   "short": "Garden Hills",
+   "slug": {
+    "_type": "slug",
+    "current": "garden-hills"
+   }
+  },
+  {
+   "_createdAt": "2026-11-19T01:15:24Z",
+   "_id": "school-atlanta-classical",
+   "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+   "_type": "school",
+   "_updatedAt": "2026-11-19T01:15:24Z",
+   "contact": {
+    "director": "Delaney Dunn",
+    "directorTitle": "Director",
+    "email": "ACA@KiddosAtlanta.com",
+    "phone": "404.821.8113"
+   },
+   "documents": {
+    "policiesUrl": ""
+   },
+   "location": {
+    "address": "3260 Northside Dr NW, Atlanta, GA 30305",
+    "locationNote": "3260 Northside Dr NW, Atlanta, GA 30305. Kiddos does not provide transportation.",
+    "mapLink": "https://www.google.com/maps/place/3260+Northside+Dr+NW,+Atlanta,+GA+30305"
+   },
+   "media": {},
+   "name": "Kiddos @ Atlanta Classical",
+   "order": 3,
+   "program": {
+    "enrollment": "K – 6th grade, Full Time or Drop-In",
+    "enrollmentNote": "Drop-in students must be registered before their first day and confirm each day by text, email or call.",
+    "grades": "K – 6th grade",
+    "hours": "Until 6:00pm"
+   },
+   "rates": {
+    "ratesNote": "Monthly rates are a 5 month fixed rate. Drop-ins are totaled at the end of the month and auto-charged on the 10th of the following month. Any declined card results in a $25 fee and the child cannot return until an updated card is placed on file. No cash or check.",
+    "rows": [
+     {
+      "_key": "k002s",
+      "label": "Annual Registration Fee:",
+      "value": "$50 / Per Child"
+     },
+     {
+      "_key": "k002t",
+      "label": "1st Child:",
+      "value": "$4,250 per semester · or $425 / month"
+     },
+     {
+      "_key": "k002u",
+      "label": "2nd Child:",
+      "value": "$3,250 per semester · or $325 / month"
+     },
+     {
+      "_key": "k002v",
+      "label": "3rd Child:",
+      "value": "$1,250 per semester · or $125 / month"
+     },
+     {
+      "_key": "k002w",
+      "label": "Drop-In, per day:",
+      "value": "$28 / $18 / $10 (1st / 2nd / 3rd child)"
+     }
+    ]
+   },
+   "short": "Atlanta Classical",
+   "slug": {
+    "_type": "slug",
+    "current": "atlanta-classical"
+   }
+  }
+ ],
+ "schoolPageSettings": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "schoolPageSettings",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "schoolPageSettings",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "classes": {
+   "body": "Martial Arts, Gymnastics, Film Making, Chess, Soccer, STEM and Tap/Ballet. You do not have to be in After School to participate in classes.",
+   "ctaText": "SEE CLASSES",
+   "headingPrefix": "Extracurricular Classes @"
+  },
+  "enroll": {
+   "ctaText": "ENROLL NOW",
+   "heading": "How to Enroll",
+   "steps": [
+    "Review all Kiddos {policies}.",
+    "Log in or create a new account in our {portal}.",
+    "You will receive an email once you complete registration that indicates your registration went through.",
+    "Send a Transportation note to your teacher.",
+    "We will anticipate your student arriving on the date you select for them to start. If the start date changes, you must text {phone}."
+   ]
+  },
+  "rates": {
+   "allRatesText": "ALL RATES & ENROLLMENT",
+   "headingSuffix": " Rates",
+   "policiesText": "POLICIES & PROCEDURES",
+   "scholarships": "<strong>Scholarships:</strong> sliding scale, first come first served. Scholarships are now closed.",
+   "subheading": "Full Time Tuition for SY 26/27"
+  },
+  "registerButton": "REGISTER SY 26/27",
+  "tagline": "After School",
+  "whatGoesOn": {
+   "body": "Each day is broken into Snack Time, Outside Time, Homework Help and Activity Choices. We also offer After School Specials, Fun Fridays and a Showcase each semester!",
+   "calendarText": "SAMPLE CALENDAR",
+   "heading": "What Goes On During After School...",
+   "learnMoreLink": "/schedule",
+   "learnMoreText": "LEARN MORE"
+  }
+ },
+ "siteSettings": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "siteSettings",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "siteSettings",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "brands": [
+   {
+    "_key": "k0001",
+    "color": "#F58235",
+    "name": "KIDDOS AFTER SCHOOL",
+    "url": "/"
+   },
+   {
+    "_key": "k0002",
+    "color": "#8BC53F",
+    "name": "KIDDOS SUMMER CAMP",
+    "url": "https://kiddossummercamp.com"
+   },
+   {
+    "_key": "k0003",
+    "color": "#00B6BE",
+    "name": "KIDDOS EARLY LEARNING CENTER",
+    "url": "https://kiddoselc.com"
+   }
+  ],
+  "email": "info@kiddosatlanta.com",
+  "enrollUrl": "https://kiddosatlanta.reg.eleyo.com/",
+  "phone": "404.955.3184",
+  "seo": {
+   "description": "After the bell rings, students are greeted with a big smile and a wide variety of snack options. Then it’s Outside Time, Homework Help and Activity Choices, with dedicated leaders and teachers who love their job.",
+   "titleSuffix": " | Kiddos After School"
+  },
+  "siteName": "Kiddos After School"
+ },
+ "teamPage": {
+  "_createdAt": "2026-11-19T01:15:24Z",
+  "_id": "teamPage",
+  "_rev": "aErFxZCV8BuwCyAIkIz4vG",
+  "_type": "teamPage",
+  "_updatedAt": "2026-11-19T01:15:24Z",
+  "founderSection": {
+   "description": "Lara is the founder and operator of Kiddos (our kiddos affectionately call her “Excel”). She grew up in Atlanta, attending Morris Brandon, Sutton and North Atlanta before earning her BBA from Georgia State University. She has seen camp and after school life from every angle: participant, counselor, teacher, mentor and director.",
+   "name": "Lara Cornett",
+   "title": "Owner & Founder"
+  },
+  "heroSection": {
+   "subtitle": "Welcome <br> to Kiddos",
+   "title": "We Care for, <br> Build Confidence in, <br> & Yield Creativity <br> from, Your Kids."
+  },
+  "members": [
+   {
+    "_key": "k002x",
+    "blob": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-089d3500de96cd32e47f3779955cad53ca329ab9-257x73-svg",
+      "_type": "reference"
+     }
+    },
+    "blobPosition": "",
+    "description": "Our kiddos lovingly call her <strong>“Cornbread.”</strong> With Kiddos since 2016, Ms. Chay oversees all three after school sites and our summer camps, and is often the friendly voice on the main phone.",
+    "name": "Ms Chay",
+    "role": "PROGRAMS DIRECTOR",
+    "video": {
+     "_type": "file",
+     "asset": {
+      "_ref": "file-16d451826b86ab74970489cd23097b0414a1c63e-mp4",
+      "_type": "reference"
+     }
+    }
+   },
+   {
+    "_key": "k002y",
+    "blob": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-82871bb581355c7fd0d7d9f1f92c9f79ed30742b-281x112-svg",
+      "_type": "reference"
+     }
+    },
+    "blobPosition": "left-[-70px]",
+    "description": "Our kiddos lovingly call her <strong>“BK Thunder.”</strong> Part of the Kiddos family since 2016, she started as a teacher at E. Rivers and stepped into the Director role in 2022.<br><br>Text or call <a href=\"tel:4048218210\">404.821.8210</a>",
+    "name": "Ms Becca",
+    "role": "DIRECTOR, E. RIVERS",
+    "video": {
+     "_type": "file",
+     "asset": {
+      "_ref": "file-78b8daaaed32ac3cc38d90b42775a5768a5a1c94-mp4",
+      "_type": "reference"
+     }
+    }
+   },
+   {
+    "_key": "k002z",
+    "blob": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-3705233ef6c798925815fc5f18d1fe29a65a0afa-281x112-svg",
+      "_type": "reference"
+     }
+    },
+    "blobPosition": "left-[-40px]",
+    "description": "Our kiddos affectionately call her <strong>“Pepto.”</strong> With Kiddos since we opened in 2011, she grew from counselor-in-training to teacher and assistant director, and now shines as Director at ACA.<br><br>Text or call <a href=\"tel:4048218113\">404.821.8113</a>",
+    "name": "Delaney Dunn",
+    "role": "DIRECTOR, ATL CLASSICAL ACADEMY",
+    "video": {
+     "_type": "file",
+     "asset": {
+      "_ref": "file-22404df88854607bab48b04e5f361b414ddf0f22-mp4",
+      "_type": "reference"
+     }
+    }
+   },
+   {
+    "_key": "k0030",
+    "blob": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-468f95156d6879c272c0651c269f527ab74d0874-239x106-svg",
+      "_type": "reference"
+     }
+    },
+    "blobPosition": "",
+    "description": "Our kiddos fondly call her <strong>“Sassy.”</strong> Sophie joined Kiddos in 2014 as a high school helper and grew into teacher, lead teacher and office coordinator roles. Today she serves as the Director at Garden Hills.<br><br>Text or call <a href=\"tel:4049228156\">404.922.8156</a>",
+    "name": "Sophie Quillin",
+    "role": "DIRECTOR, GARDEN HILLS",
+    "video": {
+     "_type": "file",
+     "asset": {
+      "_ref": "file-03f3b88a25387d8ec4ef995ec7fa9d48e16249d8-mp4",
+      "_type": "reference"
+     }
+    }
+   },
+   {
+    "_key": "k0031",
+    "blob": {
+     "_type": "image",
+     "asset": {
+      "_ref": "image-abb16c6b084fe88dfb2e06cb7f74ee53ba597b85-257x73-svg",
+      "_type": "reference"
+     }
+    },
+    "blobPosition": "",
+    "description": "Our kiddos fondly call her <strong>[NICKNAME NEEDED]</strong>. Briaja joined Kiddos in 2024. She works with Chay in the office as our Office Coordinator and is the E. Rivers After School Assistant Director.",
+    "name": "Briaja Gilbert",
+    "role": "[TITLE TO CONFIRM]",
+    "video": {
+     "_type": "file",
+     "asset": {
+      "_ref": "file-f902a418e247ff31f5b88baa8eb18f01cfe656cf-mp4",
+      "_type": "reference"
+     }
+    }
+   }
+  ],
+  "teamSection": {
+   "subtitle": "Our Kiddos team leaders are a group of extraordinary people who work to provide a caring, high energy, well organized, and over the top program!",
+   "title": "Trusted Team <br> & Experienced Leadership <br> <green>Since 2011</green>"
+  }
+ }
+}

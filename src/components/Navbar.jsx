@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useContent } from '../lib/sanity'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useScrollLock } from '../lib/hooks'
 
@@ -32,7 +33,17 @@ const MENU = [
 ]
 
 // Mobile order mirrors the approved camp mobile design: Home, Program Details, About Us, Locations, FAQ's
-const MOBILE_MENU = [MENU[0], MENU[2], MENU[1], MENU[3], MENU[4]]
+const MOBILE_ORDER = ['HOME', 'PROGRAM DETAILS', 'ABOUT US', 'LOCATIONS', 'FAQ’S']
+
+/** Build the menus from the Sanity `navigation` document; fall back to the constants above. */
+function buildMenus(nav) {
+  const menu = nav?.menu?.length
+    ? nav.menu.map((m) => ({ label: m.label, to: m.link, children: m.children?.length ? m.children.map((c) => ({ label: c.label, to: c.link })) : undefined }))
+    : MENU
+  const order = nav?.mobileOrder?.length ? nav.mobileOrder : MOBILE_ORDER
+  const mobile = [...order.map((l) => menu.find((m) => m.label === l)).filter(Boolean), ...menu.filter((m) => !order.includes(m.label))]
+  return { menu, mobile }
+}
 
 const Chevron = ({ className = '' }) => (
   <svg width="11" height="7" viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
@@ -73,6 +84,12 @@ function BrandList({ onNavigate }) {
 }
 
 export default function Navbar() {
+  const [nav] = useContent('navigation')
+  const { menu: MENU, mobile: MOBILE_MENU } = buildMenus(nav)
+  const enrollUrl = nav?.enrollButton?.link || ENROLL_URL
+  const enrollText = nav?.enrollButton?.text || 'ENROLL'
+  const contactTo = nav?.contactButton?.link || '/contact'
+  const contactText = nav?.contactButton?.text || 'CONTACT US'
   const [open, setOpen] = useState(false)          // mobile main menu
   const [brands, setBrands] = useState(false)      // mobile brand switcher
   const [expanded, setExpanded] = useState(null)   // mobile accordion
@@ -117,7 +134,7 @@ export default function Navbar() {
                 <div className={`absolute -left-1/2 top-full hidden group-hover:flex flex-col bg-[#043679] ${item.label === 'ABOUT US' ? 'w-[240px]' : item.label === 'LOCATIONS' ? 'w-[300px]' : 'w-[290px]'} shadow-lg rounded-b-lg overflow-hidden`}>
                   <div className="w-full bg-[#004AAD] h-[23px]" />
                   {item.children.map((c) => (
-                    <Link key={c.to} className={dropItem} to={c.to}>
+                    <Link key={c.label} className={dropItem} to={c.to || '#'}>
                       <span className={dropText}>{c.label}</span>
                       <ChevronRight />
                     </Link>
@@ -125,14 +142,14 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <NavLink key={item.label} to={item.to}>
+              <NavLink key={item.label} to={item.to || '/'}>
                 <div className="min-w-[53.16px] text-white text-xs font-bold font-['League_Spartan'] leading-[37.18px] tracking-[2.0926px]">{item.label}</div>
               </NavLink>
             ))}
           </div>
           <div className="flex h-8 space-x-[24px]">
-            <a rel="noopener noreferrer" className="w-[101.95px] text-[#004aad] flex items-center justify-center text-[11.99px] font-bold font-['League_Spartan'] leading-[37.18px] tracking-[2.093px] bg-[#f8ea2b] rounded-lg hover:brightness-95 transition" href={ENROLL_URL} target="_blank">ENROLL</a>
-            <Link className="min-w-[140px] text-[#004aad] flex items-center justify-center text-[11.99px] font-bold font-['League_Spartan'] leading-[37.18px] tracking-[2.093px] bg-[#f8ea2b] rounded-lg hover:brightness-95 transition" to="/contact">CONTACT US</Link>
+            <a rel="noopener noreferrer" className="w-[101.95px] text-[#004aad] flex items-center justify-center text-[11.99px] font-bold font-['League_Spartan'] leading-[37.18px] tracking-[2.093px] bg-[#f8ea2b] rounded-lg hover:brightness-95 transition" href={enrollUrl} target="_blank">{enrollText}</a>
+            <Link className="min-w-[140px] text-[#004aad] flex items-center justify-center text-[11.99px] font-bold font-['League_Spartan'] leading-[37.18px] tracking-[2.093px] bg-[#f8ea2b] rounded-lg hover:brightness-95 transition" to={contactTo}>{contactText}</Link>
           </div>
         </div>
 
@@ -169,18 +186,18 @@ export default function Navbar() {
               </button>
               <div className={`overflow-hidden transition-all duration-300 ${expanded === item.label ? 'max-h-[400px] pb-[10px]' : 'max-h-0'}`}>
                 {item.children.map((c) => (
-                  <Link key={c.to} to={c.to} className="flex justify-between items-center h-[48px] pl-[4px] text-[11px] font-semibold font-['League_Spartan'] tracking-[2px] text-white/90" onClick={close}>
+                  <Link key={c.label} to={c.to || '#'} className="flex justify-between items-center h-[48px] pl-[4px] text-[11px] font-semibold font-['League_Spartan'] tracking-[2px] text-white/90" onClick={close}>
                     <span>{c.label}</span><ChevronRight />
                   </Link>
                 ))}
               </div>
             </div>
           ) : (
-            <Link key={item.label} to={item.to} className="flex items-center h-[70px] border-b-[0.5px] border-white/20 text-[13px] font-bold font-['League_Spartan'] tracking-[2.4px]" onClick={close}>{item.label}</Link>
+            <Link key={item.label} to={item.to || '/'} className="flex items-center h-[70px] border-b-[0.5px] border-white/20 text-[13px] font-bold font-['League_Spartan'] tracking-[2.4px]" onClick={close}>{item.label}</Link>
           ))}
           <div className="flex flex-col space-y-[14px] pt-[36px]">
-            <a rel="noopener noreferrer" href={ENROLL_URL} target="_blank" className="h-[44px] flex items-center justify-center bg-[#F8EA2B] text-[#004AAD] rounded-[6px] text-[12px] font-bold font-['League_Spartan'] tracking-[2.4px]">ENROLL</a>
-            <Link to="/contact" onClick={close} className="h-[44px] flex items-center justify-center bg-[#F8EA2B] text-[#004AAD] rounded-[6px] text-[12px] font-bold font-['League_Spartan'] tracking-[2.4px]">CONTACT US</Link>
+            <a rel="noopener noreferrer" href={enrollUrl} target="_blank" className="h-[44px] flex items-center justify-center bg-[#F8EA2B] text-[#004AAD] rounded-[6px] text-[12px] font-bold font-['League_Spartan'] tracking-[2.4px]">{enrollText}</a>
+            <Link to={contactTo} onClick={close} className="h-[44px] flex items-center justify-center bg-[#F8EA2B] text-[#004AAD] rounded-[6px] text-[12px] font-bold font-['League_Spartan'] tracking-[2.4px]">{contactText}</Link>
           </div>
         </nav>
       </div>

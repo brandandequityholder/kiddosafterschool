@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
-import { useContent } from '../lib/sanity'
+import { useContent, assetUrl } from '../lib/sanity'
 import RichText from '../lib/RichText'
 import { useReveal, useDragScroll } from '../lib/hooks'
 import Button, { ctaTarget } from '../components/Button'
 import { BENEFIT_ROWS as CAMP_ROWS, BENEFIT_MOBILE as CAMP_MOBILE } from '../content/benefits'
-import site from '../content/site.json'
 
-// Reuse the camp cards' icons and blob artwork; titles and copy come from site.json (10 items).
-const B = site.benefits
-let k = 0
-const BENEFIT_ROWS = CAMP_ROWS.map((row) => ({ ...row, cards: row.cards.map((c) => { const [titleGreen, titleBlue, body] = B[k++] || []; return { ...c, titleGreen, titleBlue, body } }) }))
-const BENEFIT_MOBILE = CAMP_MOBILE.map((c, i) => { const [titleGreen, titleBlue, body] = B[i] || []; return { ...c, titleGreen, titleBlue, body } })
+// The ten benefit cards: icons + blob artwork are fixed per position (src/content/benefits.js);
+// the green/blue titles and copy come from the CMS (homePage.benefits.items).
+function benefitLayout(items = []) {
+  let k = 0
+  const rows = CAMP_ROWS.map((row) => ({ ...row, cards: row.cards.map((c) => ({ ...c, ...(items[k++] || {}) })) }))
+  const mobile = CAMP_MOBILE.map((c, i) => ({ ...c, ...(items[i] || {}) }))
+  return { rows, mobile }
+}
 
 /* ---------- small helpers ---------- */
 function Reveal({ as: Tag = 'p', className = '', children, ...rest }) {
@@ -27,12 +29,12 @@ const Blob = ({ blob }) => (
 )
 
 /* ---------- Hero ---------- */
-function Hero({ s }) {
+function Hero({ s, source }) {
   const cta = ctaTarget(s.ctaLink)
   return (
     <section className="pt-[78px] z-20 h-[920px] relative">
       <div className="relative">
-        <video playsInline src="/assets/bgVid.mp4" autoPlay loop muted poster="/assets/bgVidPoster.png" preload="auto" className="h-[920px] w-full object-cover" style={{ width: '100%', display: 'block' }} />
+        <video playsInline src={assetUrl(s.video, source, '/assets/bgVid.mp4')} autoPlay loop muted poster={assetUrl(s.poster, source, '/assets/bgVidPoster.png')} preload="auto" className="h-[920px] w-full object-cover" style={{ width: '100%', display: 'block' }} />
         <div className="absolute inset-0 bg-black/40" />
       </div>
       <div className="absolute top-[78px] z-10 w-full h-full">
@@ -108,14 +110,14 @@ function Intro({ s }) {
 }
 
 /* ---------- A Day in the Life ---------- */
-function DayInLife({ s }) {
+function DayInLife({ s, source }) {
   const cta = ctaTarget(s.ctaLink)
-  const steps = s.steps || []
+  const steps = (s.steps || []).map((st) => (typeof st === 'string' ? st : st.stepText))
   return (
     <section className="relative z-[5] pb-[30px] lg:pb-[200px]">
       <img src="/assets/CurveTwo.svg" alt="" className="-mt-[1px] relative z-10 w-full" />
       <div className="absolute h-[1210px] lg:h-full left-0 right-0 top-[-70px] lg:top-[-416px] -z-5 opacity-30 pointer-events-none">
-        <video playsInline src="/assets/KidVid.mp4" loop autoPlay muted className="h-full w-full lg:h-auto object-cover object-center lg:object-left" />
+        <video playsInline src={assetUrl(s.video, source, '/assets/KidVid.mp4')} loop autoPlay muted className="h-full w-full lg:h-auto object-cover object-center lg:object-left" />
       </div>
       <div className="absolute inset-0 -z-10 bg-[#004AAD] pointer-events-none" />
       <div className="relative space-y-[30px] lg:space-y-[50px] max-w-[306px] ml-[40px] w-full lg:px-[90px] lg:max-w-[1291.28px] lg:mx-auto py-[100px] lg:py-[100px]">
@@ -131,7 +133,7 @@ function DayInLife({ s }) {
               {steps.map((st, i) => (
                 <span key={i}>
                   <span className="text-[#9ae85d] text-[21px] font-bold font-['Montserrat'] leading-9">{i + 1}. </span>
-                  <span className="text-white text-[21px] font-medium font-['Montserrat'] leading-9">{st.stepText}<br /></span>
+                  <span className="text-white text-[21px] font-medium font-['Montserrat'] leading-9">{st}<br /></span>
                 </span>
               ))}
             </div>
@@ -141,7 +143,7 @@ function DayInLife({ s }) {
               {steps.map((st, i) => (
                 <span key={i}>
                   <span className="text-[#9ae85d] text-[17px] font-[600] font-['Montserrat'] leading-6">{i + 1}. </span>
-                  <span className="text-white text-[17px] font-[600] font-['Montserrat'] leading-6">{st.stepText}<br /><br /></span>
+                  <span className="text-white text-[17px] font-[600] font-['Montserrat'] leading-6">{st}<br /><br /></span>
                 </span>
               ))}
             </div>
@@ -156,6 +158,7 @@ function DayInLife({ s }) {
 
 /* ---------- What makes Kiddos Camp the best ---------- */
 function Benefits({ s }) {
+  const { rows: BENEFIT_ROWS, mobile: BENEFIT_MOBILE } = benefitLayout(s.items)
   return (
     <section className="relative z-30 bg-[#F8FBFF]">
       <div className="py-[70px] mx-auto w-full max-w-[306px] lg:max-w-[1284.2811px] lg:px-[100px] lg:py-[100px]">
@@ -245,7 +248,7 @@ function CampersChoice({ s }) {
 /* ---------- Testimonials carousel ---------- */
 const CARD_W_DESKTOP = 645.35 + 73
 function Testimonials({ s }) {
-  const items = s.testimonials || []
+  const items = s.items || []
   const { ref, handlers } = useDragScroll()
   const [active, setActive] = useState(0)
   const firstCard = useRef(null)
@@ -301,7 +304,7 @@ function Testimonials({ s }) {
                       <div className="text-[#004aad] text-[25.58px] font-bold font-['Montserrat'] uppercase whitespace-nowrap">
                         <div className="lg:w-[350px] h-10">
                           <span className="text-[#004aad] text-[25.58px] font-bold font-['Montserrat'] uppercase"><RichText text={t.reviewerName} /> </span>
-                          <span className="text-[#004aad] text-[20px] font-bold font-['Montserrat'] uppercase">{t.reviewerItentity}</span>
+                          <span className="text-[#004aad] text-[20px] font-bold font-['Montserrat'] uppercase">{t.reviewerIdentity}</span>
                         </div>
                       </div>
                     </div>
@@ -314,7 +317,7 @@ function Testimonials({ s }) {
                       <div className="text-[#004aad] text-[15.295px] font-bold font-['Montserrat'] uppercase whitespace-nowrap">
                         <div className="h-10">
                           <span className="text-[#004aad] text-[15.295px] font-bold font-['Montserrat'] uppercase"><RichText text={t.reviewerName} /> </span>
-                          <span className="text-[#004aad] text-[11.96px] font-bold font-['Montserrat'] uppercase">{t.reviewerItentity}</span>
+                          <span className="text-[#004aad] text-[11.96px] font-bold font-['Montserrat'] uppercase">{t.reviewerIdentity}</span>
                         </div>
                       </div>
                     </div>
@@ -337,16 +340,16 @@ function Testimonials({ s }) {
 }
 
 export default function Home() {
-  const [c] = useContent('homePageContent')
+  const [c, source] = useContent('homePage')
   if (!c) return null
   return (
     <div className="relative lg:-mt-[5px]">
-      <Hero s={c.firstSection} />
-      <Intro s={c.secSection} />
-      <DayInLife s={c.dayInLifeSection} />
-      <Benefits s={c.benefitsSection} />
-      <CampersChoice s={c.camperChoiceSection} />
-      <Testimonials s={c.communitySection} />
+      <Hero s={c.hero || {}} source={source} />
+      <Intro s={c.intro || {}} />
+      <DayInLife s={c.dayInLife || {}} source={source} />
+      <Benefits s={c.benefits || {}} />
+      <CampersChoice s={c.activityChoices || {}} />
+      <Testimonials s={c.testimonials || {}} />
     </div>
   )
 }

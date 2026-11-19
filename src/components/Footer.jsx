@@ -1,4 +1,4 @@
-import { useContent } from '../lib/sanity'
+import { useContent, assetUrl } from '../lib/sanity'
 import RichText from '../lib/RichText'
 import { useReveal } from '../lib/hooks'
 import { ENROLL_URL } from './Navbar'
@@ -33,7 +33,7 @@ const BTN_PRIMARY = "w-[189.598px] lg:w-[261.29px] flex justify-center items-cen
 
 /** "THE BEST DAY CAMP EXPERIENCE … ONE CLICK AWAY" closing CTA. Content: Sanity `lastSec`. */
 export function LastSection() {
-  const [s] = useContent('lastSec')
+  const [s] = useContent('lastSection')
   const [r1, c1] = useReveal(); const [r2, c2] = useReveal()
   if (!s) return null
   return (
@@ -56,7 +56,7 @@ export function LastSection() {
 
 /** Site footer (video band + contact info + brand tabs + social bar). Content: Sanity `footer`. */
 export default function Footer({ withLastSection = true }) {
-  const [f] = useContent('footer')
+  const [f, source] = useContent('footer')
   const [r1, c1] = useReveal()
   if (!f) return null
   const socials = f.socialLinks || []
@@ -66,7 +66,7 @@ export default function Footer({ withLastSection = true }) {
     <footer className="overflow-hidden">
       {withLastSection && <LastSection />}
       <div className="lg:mt-[260px] lg:-mb-[70px] lg:h-fit mt-[131px] relative">
-        <video playsInline src="/assets/FooterVideo.mp4" autoPlay loop muted preload="auto" className="bg-[#fdf9ef] w-full lg:h-[725.653px] absolute -top-[240px] lg:-top-[500px] lg:w-full object-cover" style={{ width: '100%', display: 'block' }} />
+        <video playsInline src={assetUrl(f.video, source, '/assets/FooterVideo.mp4')} autoPlay loop muted preload="auto" className="bg-[#fdf9ef] w-full lg:h-[725.653px] absolute -top-[240px] lg:-top-[500px] lg:w-full object-cover" style={{ width: '100%', display: 'block' }} />
         <div className="bg-white lg:mb-[70px] w-full relative bottom-0">
           <div className="flex py-[50px] space-y-[22px] lg:space-y-0 px-[50px] w-full lg:flex-row flex-col max-w-[1293.38px] mx-auto justify-between lg:px-[100px] lg:py-[60px]">
             <div className="flex items-center space-x-[18px] lg:w-[260px] shrink-0 self-start">

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useContent, assetUrl } from '../lib/sanity'
+import { useContent, assetUrl, docUrl } from '../lib/sanity'
 import RichText from '../lib/RichText'
 import { useReveal } from '../lib/hooks'
 import AnythingElse from '../components/AnythingElse'
@@ -10,11 +10,11 @@ function Reveal({ as: Tag = 'p', className = '', children, ...rest }) {
 }
 
 /* ---------- Hero ---------- */
-function Hero({ s }) {
+function Hero({ s, source }) {
   return (
     <section className="pt-[78px] lg:min-h-[920px] relative">
       <div className="relative">
-        <video playsInline src="/assets/KidVid.mp4" loop autoPlay muted className="min-h-[800px] lg:h-[920px] w-full object-cover object-center lg:object-left mix-blend-multiply" />
+        <video playsInline src={assetUrl(s.video, source, '/assets/KidVid.mp4')} loop autoPlay muted className="min-h-[800px] lg:h-[920px] w-full object-cover object-center lg:object-left mix-blend-multiply" />
         <img src="/assets/FirstCurve.svg" alt="" className="absolute bottom-[0] z-20 w-full" />
         <div className="absolute inset-0 bg-black/60 lg:bg-black/30" />
       </div>
@@ -35,7 +35,8 @@ function Hero({ s }) {
 }
 
 /* ---------- What does Kiddos have to offer ---------- */
-function Offer({ s }) {
+function Offer({ s, source }) {
+  const calendar = docUrl(s.calendarPdf, s.calendarUrl, source, '')
   return (
     <section className="relative bg-[#F8FBFF]">
       <div className="absolute lg:block hidden z-20 right-0 -bottom-[70px]">
@@ -60,7 +61,7 @@ function Offer({ s }) {
         </Reveal>
         <Reveal className="pb-[20px] max-w-[300px] text-[#004AAD] lg:max-w-[971px] w-full min-h-[84px] text-[14px] lg:text-xl font-[400] lg:font-medium font-['Montserrat'] leading-[33.10px]">{s.description}</Reveal>
         {s.calendarText && (
-          <a href={s.calendarUrl || '#'} target={s.calendarUrl && s.calendarUrl !== '#' ? '_blank' : undefined} rel="noopener noreferrer" className="inline-flex items-center justify-center h-[48px] px-[28px] mb-[40px] bg-[#004AAD] text-white rounded-[6px] text-[13px] lg:text-[15px] font-bold font-['Montserrat'] tracking-[2.5px] hover:brightness-110">
+          <a href={calendar || '#'} target={calendar ? '_blank' : undefined} rel="noopener noreferrer" className="inline-flex items-center justify-center h-[48px] px-[28px] mb-[40px] bg-[#004AAD] text-white rounded-[6px] text-[13px] lg:text-[15px] font-bold font-['Montserrat'] tracking-[2.5px] hover:brightness-110">
             {s.calendarText}
           </a>
         )}
@@ -212,9 +213,9 @@ export default function Schedule() {
   if (!c) return null
   return (
     <div className="relative w-screen -mt-[5px]">
-      <Hero s={c.firstSection} />
-      <Offer s={c.heroSection} />
-      <CampersChoice s={c.campersChoice} activities={c.activitiesSection?.activities || []} source={source} />
+      <Hero s={c.firstSection || {}} source={source} />
+      <Offer s={c.heroSection || {}} source={source} />
+      <CampersChoice s={c.campersChoice || {}} activities={c.activities || c.activitiesSection?.activities || []} source={source} />
       <Quests s={c.questsSection} />
       <DailyProgram s={c.dailyProgram} />
       <AnythingElse />

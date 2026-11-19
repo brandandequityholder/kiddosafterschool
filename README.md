@@ -1,99 +1,102 @@
-# Kiddos After School — website
+# Kiddos After School — website + CMS
 
-The Kiddos After School site, built on the Kiddos Summer Camp rebuild (same components, same
-design system) with the copy and navigation from the *Kiddos After School Wireframes*.
-
-**Draft status:** copy that the wireframes flagged as still needed renders as a yellow highlighted
-note on the page (search the code for `draft-note`, or the content file for `[NEEDED` / `[CONFIRM`).
-Replace those strings in `src/content/site.json` and the highlight disappears.
-
-Same stack as the current site so it drops straight into the existing GitHub → Vercel flow:
+The Kiddos After School site, built on the Kiddos Summer Camp design system, with its own
+Sanity CMS and analytics. Deploys to Vercel from this repo.
 
 | Layer | Choice |
 |---|---|
 | Framework | React 18 + Vite 5 |
-| Styling | Tailwind 3 (all brand values inline, no extra config needed) |
+| Styling | Tailwind 3 |
 | Routing | react-router-dom 6 |
-| Content | `src/content/site.json` (Sanity-ready: same hook, dataset can be added later) |
-| Contact form | EmailJS (same service + template as today) |
-| Hosting | Vercel (`vercel.json` rewrites all routes to `index.html`) |
+| Content | Sanity project `3p5mllwc`, dataset `production` — Studio lives in `/studio` and is served by the site at **/studio** |
+| Contact form | EmailJS |
+| Analytics | Vercel Web Analytics + Google Analytics 4 (+ optional Microsoft Clarity) |
+| Hosting | Vercel (`vercel.json` routes the site and the Studio) |
 
 ## Run it
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
-npm run build      # production build → dist/
-npm run preview    # serve dist/ locally
+npm run dev          # site → http://localhost:5173
+npm run studio       # Sanity Studio → http://localhost:3333/studio
+npm run build        # production build: site → dist/, Studio → dist/studio
+npm run build:site   # site only (faster)
 ```
 
-## Project layout
+## Content (Sanity)
 
-```
-public/
-  assets/   every SVG curve, blob, logo, video and image the site uses (clean names, no hashes)
-  cms/      media that lives in Sanity (team videos, name blobs, activity + step icons)
-  fonts/    MADE Gentle, More Sugar, Gibson, Proxima — self-hosted
-src/
-  components/  Announcement, Navbar (desktop dropdowns + mobile menu + brand switcher),
-               Footer (+ "One Click Away" CTA), AnythingElse, Button
-  pages/       Home, Schedule, Pricing, Team, Values (The Kiddos Way), Policies, Faq, Contact
-  content/     sanity-export.json (CMS fallback), benefits.js, pricingSvgs.jsx,
-               teamSvgs.jsx, policyCards.jsx (decorative artwork extracted 1:1)
-  lib/         sanity.js (client + useContent + assetUrl), RichText.jsx, hooks.js
-  styles/      index.css (fonts, fade-in, nav hover rules)
-scripts/
-  pull-content.mjs   re-export Sanity content + media into the repo
-```
+Everything on the site is editable in the Studio. Pages are **singletons** (one document each,
+can't be duplicated or deleted); **Schools** are a list, one document per school.
 
-## Content
+| Studio section | What it controls | Route |
+|---|---|---|
+| Pages → Home | hero, intro + info blocks, Day in the Life, the ten benefit cards, Activity Choices, testimonials | `/` |
+| Pages → The Kiddos Way | hero, pinky promise, story, growth, team, recognition | `/values` |
+| Pages → Our Team | hero, founder, team intro, team members (video or photo + name blob) | `/team` |
+| Pages → Schedule & Activities | hero, What Goes On (+ sample calendar PDF), activity cards, specials, daily timeline | `/schedule` |
+| Pages → Rates & Enrollment | hero, enrollment steps, rates box, rates-by-school table, add-ons, scholarships, cancelation | `/pricing` |
+| Pages → Extracurricular Classes | hero, term info, notes, weekly schedule, class cards (optionally per school) | `/classes` |
+| Pages → Parent & Guardian Info | policy cards, full-policies links (defaults to each school's PDF) | `/policies` |
+| Pages → FAQ's | questions and answers | `/faq` |
+| Pages → Contact | intro, form options, form messages, locations intro | `/contact` |
+| Schools | name, URL, contact, location (+ map image), hours/grades/enrollment, rates, hero video/photo, photo carousel, policies PDF | `/schools/<slug>` |
+| School pages — shared copy | tagline, How to Enroll steps, What Goes On, rates/classes blocks shared by every school page | all school pages |
+| Announcement Bar · Navigation · Footer · "One Click Away" CTA · "Anything Else?" block · Site Settings | site-wide pieces | everywhere |
 
-All copy lives in `src/content/site.json`, keyed by page:
+**Inline markup** in any text field: `<br>`, `<green>…</green>`, `<yellow>…</yellow>`,
+`<strong>`, `<u>`, `<a href="…">`. Draft placeholders like `[NEEDED: …]` render highlighted so
+they're easy to spot and replace.
 
-| Route | Key |
-|---|---|
-| `/` | `homePageContent` (+ `benefits`, `announcement`, `lastSec`, `footer`) |
-| `/schedule` | `schedulePage` |
-| `/pricing` | `homePage` *(kept from the camp schema; holds Rates & Enrollment + `ratesBySchool`)* |
-| `/classes` | `classesPage` |
-| `/schools/:slug` | `schools[]` (e-rivers, garden-hills, atlanta-classical) |
-| `/team` | `teamPage` |
-| `/values` | `KiddosWayPage` |
-| `/policies` | `policiesPage` |
-| `/faq` | `faqPage` |
-| `/contact` | `contactPage` + `schools[]` |
-| all inner pages | `anythingElseSection` |
+**Media** fields are optional everywhere: leave a video/photo empty and the site uses the
+default that ships in `public/assets`. Upload one to replace it.
 
-Inline markup supported in text fields: `<br>`, `<green>…</green>`, `<yellow>…</yellow>`, `<strong>`,
-`<u>`, `<a href>`. Anything in square brackets starting with NEEDED / CONFIRM / TIME / GRADES NEEDED /
-PARENT NAME renders as a draft highlight.
+### How content reaches the site
 
-To move content into Sanity later: create an after-school dataset with the same document types,
-set `VITE_SANITY_LIVE=true` plus the project/dataset vars, and `useContent()` will refresh from it.
+Pages render instantly from the bundled export (`src/content/sanity-export.json` + media in
+`public/cms`), then refresh from the live dataset. After editing in the Studio the live site
+updates immediately; run `npm run content:pull` and commit now and then so the bundled
+fallback stays current.
+
+`scripts/seed.mjs` is the one-time import that created the dataset from
+`src/content/site.pre-cms.json` (kept for reference). Re-running it overwrites every document.
+
+### Sanity dashboard settings (manage.sanity.io → project → API)
+
+- **CORS origins** must include every host the site or Studio runs on, with *Allow credentials*
+  ticked for the ones that serve the Studio: the Vercel URL(s), the production domain,
+  `http://localhost:5173` and `http://localhost:3333`.
+- No API token is needed by the site (the dataset is public). Tokens are only for scripts.
+
+## Analytics
+
+Set `VITE_GA_ID` (GA4 measurement ID) in Vercel's environment variables and enable
+**Web Analytics** in the Vercel project. Page views are tracked on every route change and
+these events are sent to both GA4 and Vercel:
+
+| Event | Fired when | Data |
+|---|---|---|
+| `enroll_click` | any link to the registration portal | page, label |
+| `contact_submit` | contact form sent | category, school |
+| `phone_click` / `email_click` | tel: / mailto: links | number / address |
+| `document_download` | PDFs (calendar, policies) | file |
+| `directions_click` | Google Maps links | label |
+| `outbound_click` | any other external link | url |
+| `school_view` | a school page opens | school |
+
+Optional: set `VITE_CLARITY_ID` for Microsoft Clarity session recordings and heatmaps.
+
+## Environment variables
+
+See `.env.example`. All optional; set them in Vercel → Project → Settings → Environment Variables.
+
+## Deploy
+
+Vercel: framework **Vite**, build `npm run build`, output `dist`. `vercel.json` serves the
+Studio at `/studio` and routes everything else to the single-page app. To launch, add the
+production domain in Vercel → Domains and the same domain to Sanity's CORS origins.
 
 ## Media still needed
 
-- After school photos/videos: every hero, the team portraits and the school-page carousels currently
-  use summer camp footage as stand-ins.
-- Maps for Garden Hills and E. Rivers (the Atlanta Classical map is reused for all three).
-- Policies & Procedures PDFs per school and the sample calendar PDF (links are `#`).
-- Social handle for the footer.
-
-## Environment variables (all optional)
-
-```
-VITE_SANITY_PROJECT_ID=mpky4rym
-VITE_SANITY_DATASET=production
-VITE_SANITY_LIVE=true            # set false to serve only the bundled export
-VITE_EMAILJS_SERVICE=service_nuvhrhi
-VITE_EMAILJS_TEMPLATE=template_porm1gg
-VITE_EMAILJS_PUBLIC_KEY=…
-VITE_ROUTER=browser              # "hash" only for static hosts without rewrites
-```
-
-## Deploy to Vercel
-
-Import the repo, framework preset **Vite**, build `npm run build`, output `dist`. The included
-`vercel.json` handles client-side routing. Point the `kiddossummercamp.com` domain at the project
-when you're ready to cut over.
-
+See the highlighted `[NEEDED]` notes in the Studio. Headline items: after-school photos and
+videos for the heroes and school carousels, map images for E. Rivers and Garden Hills,
+each school's Policies & Procedures PDF, the sample calendar PDF, and the social handle.

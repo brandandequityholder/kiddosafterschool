@@ -16,7 +16,8 @@ const LABEL = 'w-full lg:w-[391px] text-[#004AAD] text-[24px] lg:text-[31.64px] 
 const VALUE = 'text-[#75CB31] text-[24px] lg:text-[31.64px] font-normal MadeGentle leading-[23px] lg:leading-[34.42px]'
 
 /* ---------- Hero ---------- */
-function Hero({ s }) {
+function Hero({ s, source }) {
+  const photo = assetUrl(s.photo, source, '/assets/bg-abcb3fa6.jpg')
   return (
     <section className="w-full relative bg-[#F8FBFF] mt-[78px] pt-[78px]">
       <div className="lg:block hidden">
@@ -26,14 +27,14 @@ function Hero({ s }) {
           <img src="/assets/rightBlob-f0ae92e8.svg" alt="" className="z-30 right-0" />
           <div className="z-40 top-[50px] lg:block hidden absolute right-[-100px] w-fit h-fit">
             <div className="relative" style={{ maskImage: 'url("/assets/videoSvg.svg")', WebkitMaskImage: 'url("/assets/videoSvg.svg")', maskSize: 'contain', WebkitMaskSize: 'contain', maskRepeat: 'no-repeat', WebkitMaskRepeat: 'no-repeat', maskPosition: 'center center', WebkitMaskPosition: 'center center' }}>
-              <img src="/assets/bg-abcb3fa6.jpg" alt="" className="h-[596.36px] w-[892.51px] object-cover" />
+              <img src={photo} alt="" className="h-[596.36px] w-[892.51px] object-cover" />
               <div className="w-full absolute top-0 left-0 h-full opacity-20 bg-[#004AAD]" />
             </div>
           </div>
         </div>
       </div>
       <div className="h-[410px] relative lg:hidden overflow-hidden">
-        <img src="/assets/bg-abcb3fa6.jpg" alt="" className="w-full h-full object-cover" />
+        <img src={photo} alt="" className="w-full h-full object-cover" />
         <img src="/assets/VidCurveMob-755e8133.svg" alt="" className="absolute z-20 -bottom-1 w-full" />
       </div>
       <div className="max-w-[1243.406px] w-full relative lg:px-0 px-[40px] pb-[50px] lg:pb-[240px] pt-[50px] lg:pt-[160px] mx-auto">
@@ -92,14 +93,14 @@ function RatesBySchool({ t }) {
           <thead>
             <tr className="bg-[#eef5e6]">
               <th className={`${TH} text-left px-[18px] py-[14px] border-b-[0.80px] border-[#75CB31]`}></th>
-              {t.schools.map((h) => <th key={h} className={`${TH} text-left px-[18px] py-[14px] border-b-[0.80px] border-l-[0.80px] border-[#75CB31]`}>{h}</th>)}
+              {(t.columns || t.schools || []).map((h) => <th key={h} className={`${TH} text-left px-[18px] py-[14px] border-b-[0.80px] border-l-[0.80px] border-[#75CB31]`}>{h}</th>)}
             </tr>
           </thead>
           <tbody>
-            {t.rows.map((r, i) => (
-              <tr key={i} className={i % 2 ? 'bg-[#f8fbff]' : ''}>
-                <th scope="row" className={`${TD} font-bold text-left px-[18px] py-[12px] border-b-[0.80px] border-[#75CB31] align-top`}><RichText text={r[0]} /></th>
-                {r.slice(1).map((v, j) => <td key={j} className={`${TD} px-[18px] py-[12px] border-b-[0.80px] border-l-[0.80px] border-[#75CB31] align-top`}><RichText text={v} /></td>)}
+            {(t.rows || []).map((r, i) => (
+              <tr key={r._key || i} className={i % 2 ? 'bg-[#f8fbff]' : ''}>
+                <th scope="row" className={`${TD} font-bold text-left px-[18px] py-[12px] border-b-[0.80px] border-[#75CB31] align-top`}><RichText text={Array.isArray(r) ? r[0] : r.label} /></th>
+                {(Array.isArray(r) ? r.slice(1) : r.values || []).map((v, j) => <td key={j} className={`${TD} px-[18px] py-[12px] border-b-[0.80px] border-l-[0.80px] border-[#75CB31] align-top`}><RichText text={v} /></td>)}
               </tr>
             ))}
           </tbody>
@@ -154,26 +155,26 @@ function Rates({ rates, discounts, policies, bySchool }) {
             <div className="h-[212.93px] lg:pt-[40px] flex items-center justify-center"><ClockIcon /></div>
           </div>
           <div className="w-full lg:w-[553.93px] h-full pb-[18px] lg:border-l-[0.80px] border-[#75CB31]">
-            <Addon heading={discounts.first?.heading} body={discounts.first?.subHeadiing} Icon={SiblingsIcon} Blob={RowBlob1} blobClass="right-[-55.23px] bottom-0" />
-            <Addon heading={discounts.second?.heading} body={discounts.second?.subHeadiing} Icon={CalendarIcon} Blob={RowBlob2} blobClass="right-[-77.23px] bottom-0" pt="pt-[100px] lg:pt-0" />
-            <Addon heading={discounts.third?.heading} body={discounts.third?.subHeadiing} Icon={BackpackIcon} Blob={RowBlob3} blobClass="right-[-77.23px] bottom-0" rowClass="h-[250px] lg:h-[239.34px]" pt="pt-[160px] lg:pt-[15px]" />
-            <Addon heading={discounts.paySchedule?.heading} body={discounts.paySchedule?.subHeadiing} Icon={ClockIcon} Blob={RowBlob4} blobClass="right-[-52.23px] bottom-0" rowClass="h-[250px] lg:h-[212.13px] mb-[180px] lg:mb-0" pt="pt-[220px] lg:pt-[25px]" cta={{ to: discounts.paySchedule?.ctaLink || '/classes', text: discounts.paySchedule?.ctaText || 'SEE CLASSES' }} />
+            <Addon heading={discounts.first?.heading} body={discounts.first?.subHeading} Icon={SiblingsIcon} Blob={RowBlob1} blobClass="right-[-55.23px] bottom-0" />
+            <Addon heading={discounts.second?.heading} body={discounts.second?.subHeading} Icon={CalendarIcon} Blob={RowBlob2} blobClass="right-[-77.23px] bottom-0" pt="pt-[100px] lg:pt-0" />
+            <Addon heading={discounts.third?.heading} body={discounts.third?.subHeading} Icon={BackpackIcon} Blob={RowBlob3} blobClass="right-[-77.23px] bottom-0" rowClass="h-[250px] lg:h-[239.34px]" pt="pt-[160px] lg:pt-[15px]" />
+            <Addon heading={discounts.paySchedule?.heading} body={discounts.paySchedule?.subHeading} Icon={ClockIcon} Blob={RowBlob4} blobClass="right-[-52.23px] bottom-0" rowClass="h-[250px] lg:h-[212.13px] mb-[180px] lg:mb-0" pt="pt-[220px] lg:pt-[25px]" cta={{ to: discounts.paySchedule?.ctaLink || '/classes', text: discounts.paySchedule?.ctaText || 'SEE CLASSES' }} />
           </div>
         </div>
         {/* Scholarships */}
         <div className="border-b-[0.80px] items-center justify-between lg:flex-row flex-col flex px-[15px] lg:py-0 py-[20px] space-y-[15px] lg:space-y-0 lg:px-[40.86px] min-h-[84.851px] w-full border-[#75CB31]">
           <div className="text-[#004aad] text-[26px] lg:text-[31.64px] font-normal MadeGentle leading-[26px] lg:leading-[34.42px]">Scholarships</div>
-          <a className="w-[276.97px] flex items-center h-[38.42px] bg-[#75CB31] justify-center text-white text-[13.184px] font-[600] font-['Montserrat'] leading-[29.77px] tracking-[1.676px] rounded-md hover:brightness-95" href="mailto:info@KiddosAtlanta.com?subject=Scholarship%20Application">APPLY FOR A SCHOLARSHIP</a>
+          <a className="w-[276.97px] flex items-center h-[38.42px] bg-[#75CB31] justify-center text-white text-[13.184px] font-[600] font-['Montserrat'] leading-[29.77px] tracking-[1.676px] rounded-md hover:brightness-95" href={policies.scholarshipLink || "mailto:info@KiddosAtlanta.com?subject=Scholarship%20Application"}>APPLY FOR A SCHOLARSHIP</a>
         </div>
         <div className="border-b-[0.80px] items-center flex px-[30.86px] py-[20px] min-h-[84.851px] w-full border-[#75CB31]">
-          <div className="text-[#004aad] text-[17px] font-medium font-['Montserrat'] leading-[31.219px]"><RichText text={policies.Scholarshipheading} /></div>
+          <div className="text-[#004aad] text-[17px] font-medium font-['Montserrat'] leading-[31.219px]"><RichText text={policies.scholarshipText} /></div>
         </div>
         {/* Cancelation */}
         <div className="border-b-[0.80px] items-center flex px-[40.86px] min-h-[84.851px] w-full border-[#75CB31]">
           <div className="text-[#004aad] text-[31.64px] font-normal MadeGentle leading-[34.42px]">Cancelation Policy</div>
         </div>
         <div className="items-center flex px-[30.86px] py-[20px] min-h-[84.851px] w-full border-[#75CB31]">
-          <div className="text-[#004aad] text-[17px] font-medium font-['Montserrat'] leading-[30.42px]">{policies.Cancelationheading}</div>
+          <div className="text-[#004aad] text-[17px] font-medium font-['Montserrat'] leading-[30.42px]"><RichText text={policies.cancelationText} /></div>
         </div>
       </div>
       <div className="flex justify-center pt-[20px]">
@@ -184,14 +185,14 @@ function Rates({ rates, discounts, policies, bySchool }) {
 }
 
 export default function Pricing() {
-  const [c, source] = useContent('homePage')   // Sanity type name for the Rates & Enrollment page
+  const [c, source] = useContent('ratesPage')
   if (!c) return null
   return (
     <div>
-      <Hero s={c.heroSection} />
+      <Hero s={c.heroSection || {}} source={source} />
       <section className="bg-[#F8FBFF]">
         <Steps steps={c.steps || []} source={source} />
-        <Rates rates={c.ratesSection} discounts={c.discountsSection} policies={c.policiesSection} bySchool={c.ratesBySchool} />
+        <Rates rates={c.ratesSection || {}} discounts={c.discountsSection || {}} policies={c.policiesSection || {}} bySchool={c.ratesBySchool} />
       </section>
       <div className="bg-[#F8FBFF]">
         <AnythingElse className="!mt-0" />

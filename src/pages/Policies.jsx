@@ -1,4 +1,4 @@
-import { useContent } from '../lib/sanity'
+import { useContent, docUrl } from '../lib/sanity'
 import RichText, { plain } from '../lib/RichText'
 import { useReveal } from '../lib/hooks'
 import AnythingElse from '../components/AnythingElse'
@@ -65,6 +65,7 @@ function Card({ p, variant }) {
 
 export default function Policies() {
   const [c] = useContent('policiesPage')
+  const [schools, sSource] = useContent('school')
   if (!c) return null
   const items = c.policies || []
   const left = items.filter((p) => CARDS[`${plain(p.headline)}|lg:block`]?.col === 0)
@@ -89,7 +90,7 @@ export default function Policies() {
             <div className="pt-[80px] lg:pt-[120px] flex flex-col items-center space-y-[24px] text-center">
               <p className="text-[#004aad] text-[24px] lg:text-[32px] font-normal MadeGentle">{c.fullPolicies.text}</p>
               <div className="flex flex-wrap justify-center gap-[12px]">
-                {c.fullPolicies.links.map((l) => <a key={l.name} href={l.url} className="h-[44px] px-[24px] inline-flex items-center justify-center rounded-[8px] bg-[#004AAD] text-white text-[12px] lg:text-[13px] font-bold font-['League_Spartan'] tracking-[2px] hover:brightness-110">{l.name}</a>)}
+                {(c.fullPolicies.links?.length ? c.fullPolicies.links : (schools || []).map((sc) => ({ name: (sc.short || sc.name).toUpperCase(), url: docUrl(sc.documents?.policiesPdf, sc.documents?.policiesUrl, sSource) }))).map((l) => <a key={l.name} href={l.url} target={l.url?.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="h-[44px] px-[24px] inline-flex items-center justify-center rounded-[8px] bg-[#004AAD] text-white text-[12px] lg:text-[13px] font-bold font-['League_Spartan'] tracking-[2px] hover:brightness-110">{l.name}</a>)}
               </div>
             </div>
           )}

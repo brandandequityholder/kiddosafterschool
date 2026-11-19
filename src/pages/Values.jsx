@@ -1,4 +1,4 @@
-import { useContent } from '../lib/sanity'
+import { useContent, assetUrl } from '../lib/sanity'
 import RichText from '../lib/RichText'
 import { useReveal } from '../lib/hooks'
 import AnythingElse from '../components/AnythingElse'
@@ -14,7 +14,8 @@ const MASK = { maskImage: 'url("/assets/videoSvg.svg")', WebkitMaskImage: 'url("
 const H2 = 'text-[40px] lg:text-[63px] font-normal MadeGentle leading-[42px] lg:leading-[58.72px]'
 const BODY = "w-full max-w-[953px] text-[#004aad] text-base lg:text-lg font-medium font-['Montserrat'] leading-7 lg:leading-9"
 
-function Hero({ s }) {
+function Hero({ s, source }) {
+  const photo = assetUrl(s.photo, source, '/assets/bg.jpg')
   return (
     <section className="w-full relative z-10 lg:min-h-screen bg-[#F8FBFF] mt-[78px] pt-[78px]">
       <div className="lg:block hidden">
@@ -23,12 +24,12 @@ function Hero({ s }) {
         <div className="absolute top-[163px] right-0">
           <img src="/assets/rightBlob-f0ae92e8.svg" alt="" className="z-30 right-0" />
           <div className="z-40 top-[50px] lg:block hidden absolute right-[-100px] w-fit h-fit">
-            <div style={MASK}><img src="/assets/bg.jpg" alt="" className="h-[596.36px] w-[892.51px] object-cover" /></div>
+            <div style={MASK}><img src={photo} alt="" className="h-[596.36px] w-[892.51px] object-cover" /></div>
           </div>
         </div>
       </div>
       <div className="h-[410px] relative lg:hidden overflow-hidden">
-        <img src="/assets/bg.jpg" alt="" className="h-[596.36px] w-[892.51px] object-cover" />
+        <img src={photo} alt="" className="h-[596.36px] w-[892.51px] object-cover" />
         <img src="/assets/VidCurveMob-755e8133.svg" alt="" className="absolute z-20 -bottom-1 w-full" />
       </div>
       <div className="max-w-[1243.406px] w-full relative lg:px-0 px-[40px] pb-[50px] lg:pb-[240px] pt-[50px] lg:pt-[150px] mx-auto">
@@ -57,12 +58,12 @@ function Block({ headline, body, className = '', headColor = 'text-[#004AAD]', b
 }
 
 export default function Values() {
-  const [c] = useContent('KiddosWayPage')
+  const [c, source] = useContent('kiddosWayPage')
   if (!c) return null
   const pp = c.pinkyPromiseSection || {}
   return (
     <div>
-      <Hero s={c.heroSection || {}} />
+      <Hero s={c.heroSection || {}} source={source} />
       <section className="bg-[#F8FBFF]">
         <div className="max-w-[1243.406px] pb-[50px] lg:pb-[150px] space-y-[50px] w-full relative lg:px-[126px] px-[40px] mx-auto">
           <div className="space-y-[30px] text-center lg:pt-0 pt-[100px] lg:text-start">

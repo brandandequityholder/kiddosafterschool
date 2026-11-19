@@ -4,11 +4,11 @@ import { useReveal } from '../lib/hooks'
 
 /**
  * Yellow "Anything Else?" band that closes most inner pages.
- * Content: Sanity `anythingElseSection`. The yellow wave curve above it and the cream
+ * Content: Sanity `anythingElse`. The yellow wave curve above it and the cream
  * curve below it are part of the section so every page gets the identical treatment.
  */
 export default function AnythingElse({ curve = '/assets/secCurve-cc051464.svg', className = '' }) {
-  const [s] = useContent('anythingElseSection')
+  const [s] = useContent('anythingElse')
   const [r1, c1] = useReveal(); const [r2, c2] = useReveal()
   if (!s) return null
   const contact = s.contactUsLink || { linkText: 'Contact Us', urlSlug: '/contact' }
